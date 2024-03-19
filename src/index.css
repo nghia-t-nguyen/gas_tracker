@@ -1,0 +1,43 @@
+body {
+  margin: 0;
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #0d1020;
+}
+
+* {
+  margin: 0;
+}
+
+h1 {
+  font-family: "DM Sans", sans-serif;
+  color: #ece4ff;
+  font-size: 2.25rem;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+h2 {
+  font-family: "DM Sans", sans-serif;
+  color: #ece4ff;
+  font-size: 1.875rem;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+h3 {
+  font-family: "DM Sans", sans-serif;
+  font-size: 1.25rem;
+  color: #ece4ff;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+p {
+  font-size: 1rem;
+  color: #ece4ff;
+}
