@@ -1,6 +1,7 @@
 import './SignUp.css'
 import Navbar from '../components/navbars/NavbarSignUp'
 import ButtonPrimary from '../components/buttons/ButtonPrimary';
+import ButtonPrimaryGoogle from '../components/buttons/ButtonPrimaryGoogle';
 import { useRef, useState } from 'react';
 
 export default function SignUp() {
@@ -60,7 +61,7 @@ function SignUpForm() {
                 </div>
                 <div className='sign-up-form--or-right-div'></div>
             </div>
-            <ButtonPrimary title='Sign in with Google' />
+            <ButtonPrimaryGoogle title='Sign up with Google' />
         </div>
     )
 }

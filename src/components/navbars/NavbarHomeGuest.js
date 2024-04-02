@@ -3,7 +3,7 @@ import logo from '../../assets/logo/cube-logo.svg'
 import ButtonPrimary from '../buttons/ButtonPrimary'
 import ButtonSecondary from '../buttons/ButtonSecondary'
 
-export default function Navbar() {
+export default function NavbarHomeGuest() {
     return (
         <div className='navbar-container'>
             <nav className='flexbox--space-between flexbox--vertical-center'>
