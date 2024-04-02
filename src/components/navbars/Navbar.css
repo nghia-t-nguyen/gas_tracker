@@ -24,6 +24,10 @@ nav {
     margin: 0;
 }
 
+.navbar--name-span {
+    color: #ece4ff;
+}
+
 .logo {
     width: 2rem;
     margin-right: 1rem;
