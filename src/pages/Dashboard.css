@@ -1,0 +1,33 @@
+.dashboard-content--max-width {
+    width: 100%;
+    max-width: 80rem;
+    margin-top: 80px;
+    padding: 0 1rem;
+    height: 100vh;
+    min-height: 40rem;
+    max-height: 60rem;
+}
+
+.dashboard--section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.dashboard--view-button {
+    display: flex;
+    user-select: none;
+    cursor: pointer;
+}
+
+.dashboard--view-button-img {
+    width: 1.5rem;
+    transform: translate(0, -0.125rem);
+}
+
+.dashboard--view-button-text {
+    color: #4DFFDF;
+    font-size: 1.2rem;
+    line-height: 2.25rem;
+    margin-left: 0.3rem;
+}

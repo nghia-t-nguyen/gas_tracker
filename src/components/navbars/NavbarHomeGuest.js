@@ -1,5 +1,5 @@
 import './Navbar.css'
-import logo from '../../assets/logo/cube-logo.svg'
+import logo from '../../assets/icons/cube-logo.svg'
 import ButtonPrimary from '../buttons/ButtonPrimary'
 import ButtonSecondary from '../buttons/ButtonSecondary'
 
