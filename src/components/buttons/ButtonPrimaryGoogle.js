@@ -1,5 +1,5 @@
 import './ButtonPrimary.css'
-import googleLogo from '../../assets/logo/google_icon.svg'
+import googleLogo from '../../assets/icons/google_icon.svg'
 
 export default function ButtonPrimaryGoogle(props) {
     return (

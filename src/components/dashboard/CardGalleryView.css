@@ -1,0 +1,56 @@
+.card-gallery-view {
+    width: 100%;
+    padding: 2rem 0;
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card--gallery-state {
+    border-radius: 20px;
+    padding: 0.75rem 1rem;
+    height: 300px;
+    border: 1px solid #151D48;
+    background: linear-gradient(168deg, rgba(13, 16, 32, 0.90) 4.22%, rgba(21, 29, 72, 0.60) 93.29%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card--topline-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card--minus {
+    display: flex;
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: #0D1020;
+    border-radius: 50%;
+    border: 1px solid #151D48;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.card--minus--span {
+    color: #4DFFDF;
+    font-weight: 700;
+    line-height: 2.1rem;
+    font-size: 2.5rem;
+    user-select: none;
+}
+
+.card--graph-gallery {
+    height: 200px;
+    border: 1px solid white;
+    color: white;
+}
+
+.card--more-details {
+    color: #4DFFDF;
+    font-size: 1.2rem;
+    text-decoration: none;
+    text-align: right;
+}
