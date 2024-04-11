@@ -18,7 +18,7 @@ export default function Dashboard() {
                 <div className='dashboard--view-button'
                     title='toggle view'
                     onClick={() => setWatchlistGalleryView(prevState => !prevState)}>
-                    <img className='dashboard--view-button-img'
+                    <img alt='' className='dashboard--view-button-img'
                         src={watchlistGalleryView ? galleryViewIcon : listViewIcon} />
                     <span className='dashboard--view-button-text'>
                         view
@@ -34,7 +34,7 @@ export default function Dashboard() {
                 <div className='dashboard--view-button'
                     title='toggle view'
                     onClick={() => setOtherCryptoGalleryView(prevState => !prevState)}>
-                    <img className='dashboard--view-button-img'
+                    <img alt='' className='dashboard--view-button-img'
                         src={otherCryptoGalleryView ? galleryViewIcon : listViewIcon} />
                     <span className='dashboard--view-button-text'>
                         view

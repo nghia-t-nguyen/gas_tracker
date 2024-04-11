@@ -54,3 +54,9 @@ nav {
 nav>a {
     text-decoration: none;
 }
+
+.back-bracket {
+    margin-right: 1rem;
+    color: #4DFFDF;
+    user-select: none;
+}

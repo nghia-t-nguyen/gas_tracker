@@ -1,0 +1,14 @@
+.account-settings--max-width {
+    width: 100%;
+    max-width: 80rem;
+    margin-top: 80px;
+    padding: 0 1rem;
+    height: 100vh;
+    min-height: 40rem;
+}
+
+.account-settings--action-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

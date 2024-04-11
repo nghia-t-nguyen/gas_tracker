@@ -13,7 +13,7 @@ export default function NavbarHomeGuest() {
                         <span className='navbar--name-span'>_DASHBOARD</span>
                     </h2>
                 </div>
-                <div className='navbar--buttons-container'><ButtonSecondary title='Account Settings' /> <ButtonPrimary title='Sign out' /></div>
+                <div className='navbar--buttons-container'><ButtonSecondary name='Account Settings' /> <ButtonPrimary name='Sign out' /></div>
             </nav>
         </div>
     )

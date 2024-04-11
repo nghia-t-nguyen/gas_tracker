@@ -7,8 +7,13 @@ export default function NavbarHomeGuest() {
     return (
         <div className='navbar-container'>
             <nav className='flexbox--space-between flexbox--vertical-center'>
-                <div className='flexbox--vertical-center'><img alt='' className='logo' src={logo} /><h2 className='navbar--name'>gas_tracker</h2></div>
-                <div className='navbar--buttons-container'><ButtonSecondary name='Sign up' /> <ButtonPrimary name='Sign in' /></div>
+                <div className='flexbox--vertical-center'>
+                    <h1 className='back-bracket'>&lt;</h1>
+                    <img alt='' className='logo' src={logo} />
+                    <h2 className='navbar--name'>gas_tracker
+                        <span className='navbar--name-span'>_ACCOUNT</span>
+                    </h2>
+                </div>
             </nav>
         </div>
     )

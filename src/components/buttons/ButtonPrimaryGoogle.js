@@ -8,7 +8,7 @@ export default function ButtonPrimaryGoogle(props) {
                 alt='google logo'
                 src={googleLogo}
                 style={{ height: '1.25rem', marginRight: '6px' }} />
-            <h3 className='button--primary-title'>{props.title}</h3>
+            <h3 className='button--primary-title'>{props.name}</h3>
         </button>
     )
 }
