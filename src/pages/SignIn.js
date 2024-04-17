@@ -3,6 +3,7 @@ import Navbar from '../components/navbars/NavbarSignIn'
 import ButtonPrimary from '../components/buttons/ButtonPrimary';
 import ButtonPrimaryGoogle from '../components/buttons/ButtonPrimaryGoogle';
 import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignIn() {
     const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
@@ -51,8 +52,8 @@ function SignInForm() {
             <p>sign in with email</p>
             <input className="signin-form--input" type='email' placeholder="email" value={email} onChange={e => setEmail(e.target.value)} />
             <input className="signin-form--input" type='password' placeholder="password" value={password} onChange={e => setPassword(e.target.value)} />
-            <div className='forgot-password--container'><a className='forgot-password--anchor'>Forgot password? Click here to reset password.</a></div>
-            <ButtonPrimary title='Sign in' />
+            <div className='forgot-password--container'><a className='forgot-password--anchor' href='/sign-in/forgot-password'>Forgot password? Click here to reset password.</a></div>
+            <ButtonPrimary name='Sign in' />
             <div className='signin-form--or-container'>
                 <div className='signin-form--or-left-div'></div>
                 <div>
@@ -60,7 +61,7 @@ function SignInForm() {
                 </div>
                 <div className='signin-form--or-right-div'></div>
             </div>
-            <ButtonPrimaryGoogle title='Sign in with Google' />
+            <ButtonPrimaryGoogle name='Sign in with Google' />
         </div>
     )
 }
