@@ -1,0 +1,19 @@
+.message-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 21;
+}
+
+.message-inner-container {
+    width: 30%;
+    margin: 0 auto;
+    background-color: #ece4ff;
+    padding: 1rem;
+    border-radius: 20px;
+    color: #0d1020;
+}

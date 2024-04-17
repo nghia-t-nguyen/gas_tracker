@@ -51,7 +51,7 @@ function EmailVerificationForm() {
             <input className="email-verification-form--input" type='email' placeholder="email" value={email} onChange={e => setEmail(e.target.value)} />
             <input className="email-verification-form--input" type='password' placeholder="password" value={email} onChange={e => setPassword(e.target.value)} />
             <div className='resend-email--container'><a className='resend-email--anchor'>Didn't receive an email? Click here to resend email.</a></div>
-            <ButtonPrimary title='Sign in' />
+            <ButtonPrimary name='Sign in' />
         </div>
     )
 }

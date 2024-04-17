@@ -3,6 +3,7 @@ import Navbar from '../components/navbars/NavbarSignUp'
 import ButtonPrimary from '../components/buttons/ButtonPrimary';
 import ButtonPrimaryGoogle from '../components/buttons/ButtonPrimaryGoogle';
 import { useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignUp() {
     const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
@@ -46,6 +47,12 @@ function SignUpForm() {
     const [password, setPassword] = useState('');
     const [passwordConfirm, setPasswordConfirm] = useState('');
 
+    const navigate = useNavigate();
+
+    const goToEmailVerification = () => {
+        navigate(`/sign-up/email=${email}`)
+    }
+
     return (
         <div className='signup-form--inner-container'>
             <h1>Welcome to <span>gas_tracker</span></h1>
@@ -53,7 +60,7 @@ function SignUpForm() {
             <input className="sign-up-form--input" type='email' placeholder="email" value={email} onChange={e => setEmail(e.target.value)} />
             <input className="sign-up-form--input" type='password' placeholder="password" value={password} onChange={e => setPassword(e.target.value)} />
             <input className="sign-up-form--input" type='password' placeholder="confirm password" value={passwordConfirm} onChange={e => setPasswordConfirm(e.target.value)} />
-            <ButtonPrimary title='Continue' />
+            <ButtonPrimary name='Continue' handleClick={goToEmailVerification} />
             <div className='sign-up-form--or-container'>
                 <div className='sign-up-form--or-left-div'></div>
                 <div>
@@ -61,7 +68,7 @@ function SignUpForm() {
                 </div>
                 <div className='sign-up-form--or-right-div'></div>
             </div>
-            <ButtonPrimaryGoogle title='Sign up with Google' />
+            <ButtonPrimaryGoogle name='Sign up with Google' />
         </div>
     )
 }

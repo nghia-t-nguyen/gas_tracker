@@ -1,10 +1,10 @@
 .dashboard-content--max-width {
     width: 100%;
     max-width: 80rem;
+    margin: 0 auto;
     margin-top: 80px;
     padding: 0 1rem;
     height: 100vh;
-
 }
 
 .dashboard--section {

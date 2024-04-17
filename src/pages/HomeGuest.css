@@ -2,7 +2,10 @@
     width: 100%;
     max-width: 80rem;
     padding: 0 1rem;
+    margin: 0 auto;
 }
+
+
 
 .home--hero {
     height: 100vh;
@@ -12,6 +15,7 @@
     grid-template-columns: repeat(12, 1fr);
 }
 
+
 .home--hero-image-container {
     position: relative;
     grid-column-start: 1;
@@ -19,6 +23,43 @@
     height: 100%;
     display: flex;
     align-items: center;
+}
+
+.skeleton-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #0d1020;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fade-in {
+    opacity: 0;
+    /* Start with opacity 0 */
+    transition: opacity 2s ease-in-out;
+    /* Apply transition effect */
+}
+
+.fade-in.active {
+    opacity: 1;
+    /* Gradually increase opacity to 1 */
+}
+
+.fade-out {
+    opacity: 1;
+    /* Start with opacity 0 */
+    transition: opacity 0.5s ease-in-out;
+    /* Apply transition effect */
+    z-index: 0;
+}
+
+.fade-out.active {
+    opacity: 0;
 }
 
 .home--hero-image-cube-edges {
