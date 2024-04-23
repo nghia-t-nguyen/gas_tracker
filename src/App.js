@@ -12,7 +12,7 @@ import DashboardGuest from './pages/DashboardGuest'
 
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
 
 
@@ -25,6 +25,7 @@ function App() {
         <Route path='/sign-up' element={<SignUp />} />
         <Route path='/sign-up/:address' element={<EmailVerification />} />
         <Route path='/dashboard' element={isLoggedIn ? <Dashboard /> : <DashboardGuest />} />
+        <Route path='/account-settings' element={<AccountSettings />} />
       </Routes>
     </BrowserRouter>
   );

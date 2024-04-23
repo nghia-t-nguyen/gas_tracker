@@ -9,7 +9,9 @@ export default function AccountSettings() {
             <Navbar />
             <div className='account-settings--action-item'>
                 <h2>Delete Account</h2>
-                <ButtonSecondary name='Delete Account' />
+                <div className='button-container'>
+                    <ButtonSecondary name='Delete Account' />
+                </div>
             </div>
         </div>
     )

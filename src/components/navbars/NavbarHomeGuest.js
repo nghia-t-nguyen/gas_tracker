@@ -20,7 +20,7 @@ export default function NavbarHomeGuest() {
             <nav className='flexbox--space-between flexbox--vertical-center'>
                 <div className='flexbox--vertical-center'><img alt='' className='logo' src={logo} /><h2 className='navbar--name'>gas_tracker</h2></div>
                 <div className='navbar--buttons-container'>
-                    <ButtonSecondary name='Sign up' handleClick={goToSignUp} />
+                    <div className='sign-up-button'><ButtonSecondary name='Sign up' handleClick={goToSignUp} /></div>
                     <ButtonPrimary name='Sign in' handleClick={goToSignIn} />
                 </div>
             </nav>
