@@ -1,67 +1,151 @@
-.card-linear-view {
-    width: 100%;
-    padding: 2rem 0;
+@media screen and (min-width: 768px) {
+    .card-linear-view {
+        width: 100%;
+        padding: 2rem 0;
+    }
+
+    .card--linear-state {
+        border-radius: 2.25rem;
+        padding: 1rem 1.5rem;
+        margin-bottom: 1.5rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        border: 1px solid #151D48;
+        background: linear-gradient(177deg, rgba(13, 16, 32, 0.90) 4.22%, rgba(21, 29, 72, 0.60) 93.29%);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
+    .card--linear-end-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .graph-time {
+        font-size: 1.2rem;
+        color: #ece4ff;
+        margin-right: 1rem;
+    }
+
+    .card--graph-linear {
+        width: 4rem;
+        height: 2rem;
+        background-color: aqua;
+        margin-right: 1rem;
+    }
+
+    .graph-ticker--span {
+        font-size: 1.2rem;
+        color: red;
+    }
+
+    .card-linear--more-details {
+        color: #4DFFDF;
+        font-size: 1.2rem;
+        text-decoration: none;
+        margin: 0 1rem;
+        text-align: right;
+    }
+
+    .card--plus {
+        display: flex;
+        height: 2.5rem;
+        width: 2.5rem;
+        min-height: 2.5rem;
+        min-width: 2.5rem;
+        background-color: #0D1020;
+        border-radius: 1.25rem;
+        border: 1px solid #151D48;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .card--plus--span {
+        color: #4DFFDF;
+        font-weight: 700;
+        line-height: 2.5rem;
+        font-size: 2.5rem;
+        user-select: none;
+    }
 }
 
-.card--linear-state {
-    border-radius: 2rem;
-    height: 4rem;
-    padding: 0 1.5rem;
-    margin-bottom: 1.5rem;
-    border: 1px solid #151D48;
-    background: linear-gradient(177deg, rgba(13, 16, 32, 0.90) 4.22%, rgba(21, 29, 72, 0.60) 93.29%);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
 
-.card--linear-end-container {
-    display: flex;
-    align-items: center;
-}
 
-.graph-time {
-    font-size: 1.2rem;
-    color: #ece4ff;
-    margin-right: 1rem;
-}
+@media screen and (max-width: 768px) {
+    .card-linear-view {
+        width: 100%;
+        padding: 2rem 0;
+    }
 
-.card--graph-linear {
-    width: 4rem;
-    height: 2rem;
-    background-color: aqua;
-    margin-right: 1rem;
-}
+    .card--linear-state {
+        border-radius: 2.25rem;
+        padding: 1rem 1.5rem;
+        margin-bottom: 1.5rem;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        border: 1px solid #151D48;
+        background: linear-gradient(177deg, rgba(13, 16, 32, 0.90) 4.22%, rgba(21, 29, 72, 0.60) 93.29%);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
-.graph-ticker--span {
-    margin-right: 1rem;
-    font-size: 1.2rem;
-    color: red;
-}
+    .card--linear-end-container {
+        display: flex;
+        align-items: center;
+    }
 
-.card-linear--more-details {
-    color: #4DFFDF;
-    font-size: 1.2rem;
-    text-decoration: none;
-    margin-right: 1rem;
-}
+    .graph-time {
+        display: none;
+        font-size: 1.2rem;
+        color: #ece4ff;
+        margin-right: 1rem;
+    }
 
-.card--plus {
-    display: flex;
-    height: 2.5rem;
-    width: 2.5rem;
-    background-color: #0D1020;
-    border-radius: 50%;
-    border: 1px solid #151D48;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-}
+    .card--graph-linear {
+        display: none;
+        width: 4rem;
+        height: 2rem;
+        background-color: aqua;
+        margin-right: 1rem;
+    }
 
-.card--plus--span {
-    color: #4DFFDF;
-    font-weight: 700;
-    line-height: 2.5rem;
-    font-size: 2.5rem;
-    user-select: none;
+    .graph-ticker--span {
+        display: none;
+        font-size: 1.2rem;
+        color: red;
+    }
+
+    .card-linear--more-details {
+        color: #4DFFDF;
+        font-size: 1.2rem;
+        text-decoration: none;
+        margin: 0 1rem;
+        text-align: right;
+    }
+
+    .card--plus {
+        display: flex;
+        height: 2.5rem;
+        width: 2.5rem;
+        min-height: 2.5rem;
+        min-width: 2.5rem;
+        background-color: #0D1020;
+        border-radius: 1.25rem;
+        border: 1px solid #151D48;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .card--plus--span {
+        color: #4DFFDF;
+        font-weight: 700;
+        line-height: 2.5rem;
+        font-size: 2.5rem;
+        user-select: none;
+    }
 }
