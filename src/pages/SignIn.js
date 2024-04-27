@@ -2,7 +2,8 @@ import './SignIn.css'
 import Navbar from '../components/navbars/NavbarSignIn'
 import ButtonPrimary from '../components/buttons/ButtonPrimary';
 import ButtonPrimaryGoogle from '../components/buttons/ButtonPrimaryGoogle';
-import { useRef, useState } from 'react';
+import { useRef, useState, useContext } from 'react';
+import { AuthContext } from '../provider/Authentication';
 import { useNavigate } from 'react-router-dom';
 
 export default function SignIn() {
@@ -46,6 +47,16 @@ function SignInForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const { currentUser, signInWithGoogle } = useContext(AuthContext);
+    const navigate = useNavigate();
+    if (currentUser) {
+        navigate('/dashboard')
+    }
+
+    const handleGoogleSignIn = () => {
+        signInWithGoogle()
+    }
+
     return (
         <div className='signin-form--inner-container'>
             <h1>Sign into <span>gas_tracker</span></h1>
@@ -61,7 +72,7 @@ function SignInForm() {
                 </div>
                 <div className='signin-form--or-right-div'></div>
             </div>
-            <ButtonPrimaryGoogle name='Sign in with Google' />
+            <ButtonPrimaryGoogle name='Sign in with Google' handleClick={handleGoogleSignIn} />
         </div>
     )
 }

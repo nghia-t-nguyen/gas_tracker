@@ -3,7 +3,7 @@ import googleLogo from '../../assets/icons/google_icon.svg'
 
 export default function ButtonPrimaryGoogle(props) {
     return (
-        <button className='button--primary'>
+        <button onClick={props.handleClick} className='button--primary'>
             <img
                 alt='google logo'
                 src={googleLogo}

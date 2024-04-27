@@ -11,7 +11,8 @@ import HeroCube7 from '../assets/hero/hero-cube-7.svg'
 import './HomeGuest.css'
 import Navbar from '../components/navbars/NavbarHomeGuest'
 import { useNavigate } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { AuthContext } from '../provider/Authentication'
 
 export default function Home() {
     const [isLoading, setIsLoading] = useState(true);
@@ -23,6 +24,7 @@ export default function Home() {
         return () => clearTimeout(timer);
     }, []); // Empt
 
+    const { currentUser } = useContext(AuthContext);
 
     const navigate = useNavigate();
 
@@ -32,6 +34,10 @@ export default function Home() {
 
     const goToSignUp = () => {
         navigate('/sign-up')
+    }
+
+    if (currentUser) {
+        navigate('/dashboard')
     }
 
     return (
