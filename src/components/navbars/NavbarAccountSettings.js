@@ -12,7 +12,7 @@ export default function NavbarHomeGuest() {
         <div className='navbar-container'>
             <nav className='flexbox--space-between flexbox--vertical-center'>
                 <div className='flexbox--vertical-center'>
-                    <h1 className='back-bracket' onClick={goBackToDashboard}>&lt;</h1>
+                    <h1 title='Back to dashboard' className='back-bracket' onClick={goBackToDashboard}>&lt;</h1>
                     <img alt='' className='logo' src={logo} />
                     <h2 className='navbar--name'>gas_tracker
                         <span className='navbar--name-span'>_ACCOUNT</span>

@@ -2,12 +2,23 @@ import './Navbar.css'
 import logo from '../../assets/icons/cube-logo.svg'
 import ButtonPrimary from '../buttons/ButtonPrimary'
 import ButtonSecondary from '../buttons/ButtonSecondary'
+import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../provider/Authentication';
 
 export default function NavbarDashboard() {
+    // Navigation
     const navigate = useNavigate();
     const goToAccountSettings = () => {
         navigate('/account-settings');
+    }
+
+    // Context
+    const { currentUser, signOutUser } = useContext(AuthContext);
+
+    const handleSignOutUser = () => {
+        signOutUser()
+        navigate('/')
     }
 
     return (
@@ -23,7 +34,7 @@ export default function NavbarDashboard() {
                     <div className='account-settings-button'>
                         <ButtonSecondary name='Account Settings' handleClick={goToAccountSettings} />
                     </div>
-                    <ButtonPrimary name='Sign out' /></div>
+                    <ButtonPrimary name='Sign out' handleClick={handleSignOutUser} /></div>
             </nav>
         </div>
     )

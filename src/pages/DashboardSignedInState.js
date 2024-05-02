@@ -1,12 +1,12 @@
-import './Dashboard.css'
-import Navbar from '../components/navbars/NavbarSignIn'
-import CardGalleryView from '../components/dashboard/CardGalleryView'
-import CardLinearView from '../components/dashboard/CardLinearView'
-import galleryViewIcon from '../assets/icons/gallery_view_icon.svg'
-import listViewIcon from '../assets/icons/list_view_icon.svg'
+import './Dashboard.css';
+import Navbar from '../components/navbars/NavbarDashboard';
+import CardGalleryView from '../components/dashboard/CardGalleryView';
+import CardLinearView from '../components/dashboard/CardLinearView';
+import galleryViewIcon from '../assets/icons/gallery_view_icon.svg';
+import listViewIcon from '../assets/icons/list_view_icon.svg';
 import { useState } from 'react';
 
-export default function DashboardGuest() {
+export default function DashboardSignedInState() {
     const [watchlistGalleryView, setWatchlistGalleryView] = useState(true);
     const [otherCryptoGalleryView, setOtherCryptoGalleryView] = useState(false);
 

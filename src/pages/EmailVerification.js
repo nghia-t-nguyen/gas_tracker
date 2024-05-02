@@ -1,11 +1,16 @@
 import './EmailVerification.css'
 import Navbar from '../components/navbars/NavbarSignUp'
 import ButtonPrimary from '../components/buttons/ButtonPrimary';
-import { useRef, useState } from 'react';
+import { useRef, useState, useContext } from 'react';
+import { AuthContext } from '../provider/Authentication';
+import { useNavigate } from 'react-router-dom';
+import Message from '../components/other/Message'
+import DisplayForTenSeconds from '../functions/displayForTenSeconds';
 
 export default function EmailVerification() {
     const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
     const [isVisible, setIsVisible] = useState(false);
+    const [showComponent, setShowComponent] = useState(false);
     const divRef = useRef(null);
 
     const handleMouseMove = (event) => {
@@ -15,9 +20,20 @@ export default function EmailVerification() {
         setCoordinates({ x, y });
     };
 
+    const showPopup = () => {
+        setShowComponent(true);
+        setTimeout(() => {
+            setShowComponent(false);
+        }, 10000); // 10 seconds
+    };
+
     return (
         <div className="email-verification-content--max-width">
             <Navbar />
+            {showComponent &&
+                <DisplayForTenSeconds component={
+                    <Message text='Email not verified. Try again.' />} />
+            }
             <div className='email-verification-form--container'>
                 <div className='email-verification-form--clipped-circle'
                     ref={divRef}
@@ -32,7 +48,7 @@ export default function EmailVerification() {
                         }}>
                     </div>
                     <div className='email-verification-form'>
-                        <EmailVerificationForm />
+                        <EmailVerificationForm handlePopup={showPopup} />
                     </div>
                 </div>
             </div>
@@ -40,18 +56,34 @@ export default function EmailVerification() {
     )
 }
 
-function EmailVerificationForm() {
+function EmailVerificationForm(props) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const navigate = useNavigate();
+    const { currentUser, signInUser, signOutUser, resendVerificationEmail } = useContext(AuthContext);
+
+    const handleSignIn = () => {
+        signInUser(email, password)
+    }
+
+    if (currentUser) {
+        if (currentUser.emailVerified) {
+            navigate('/dashboard')
+        } else {
+            signOutUser();
+            props.handlePopup();
+        }
+    }
 
     return (
         <div className='email-verification-form--inner-container'>
             <h1 className='email-verification-h1'>An email verification has been sent.</h1>
             <p>Verify email before signing in.</p>
             <input className="email-verification-form--input" type='email' placeholder="email" value={email} onChange={e => setEmail(e.target.value)} />
-            <input className="email-verification-form--input" type='password' placeholder="password" value={email} onChange={e => setPassword(e.target.value)} />
-            <div className='resend-email--container'><a className='resend-email--anchor'>Didn't receive an email? Click here to resend email.</a></div>
-            <ButtonPrimary name='Sign in' />
+            <input className="email-verification-form--input" type='password' placeholder="password" value={password} onChange={e => setPassword(e.target.value)} />
+            <div className='resend-email--container'><span className='resend-email--anchor' onClick={resendVerificationEmail}>Didn't receive an email? Click here to resend email.</span></div>
+            <ButtonPrimary name='Sign in' handleClick={handleSignIn} />
         </div>
     )
 }
