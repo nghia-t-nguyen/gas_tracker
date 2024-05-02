@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-const DisplayForThreeSeconds = ({ component }) => {
+const DisplayForTenSeconds = ({ component }) => {
     const [isVisible, setIsVisible] = useState(true);
 
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsVisible(false);
-        }, 3000);
+        }, 10000);
 
         return () => clearTimeout(timer);
     }, []); // Empty dependency array ensures that this effect runs only once, like componentDidMount
@@ -18,4 +18,4 @@ const DisplayForThreeSeconds = ({ component }) => {
     );
 };
 
-export default DisplayForThreeSeconds;
+export default DisplayForTenSeconds;

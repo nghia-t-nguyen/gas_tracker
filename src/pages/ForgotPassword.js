@@ -1,9 +1,10 @@
 import './ForgotPassword.css'
 import Navbar from '../components/navbars/NavbarSignIn'
 import ButtonPrimary from '../components/buttons/ButtonPrimary';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useContext } from 'react';
 import Message from '../components/other/Message'
-import DisplayForThreeSeconds from '../functions/displayForThreeSeconds';
+import DisplayForTenSeconds from '../functions/displayForTenSeconds';
+import { AuthContext } from '../provider/Authentication';
 
 export default function ForgotPassword() {
     const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
@@ -18,19 +19,17 @@ export default function ForgotPassword() {
         setCoordinates({ x, y });
     };
 
-
-
     const showPopup = () => {
         setShowComponent(true);
         setTimeout(() => {
             setShowComponent(false);
-        }, 5000); // 5 seconds
+        }, 10000); // 10 seconds
     };
 
     return (
         <div className="forgot-password-content--max-width">
             <Navbar />
-            {showComponent && <DisplayForThreeSeconds component={<Message text='You should receive a password change email if your email address is valid.' />} />}
+            {showComponent && <DisplayForTenSeconds component={<Message text='You should receive a password change email if your email address is valid.' />} />}
             <div className='forgot-password-form--container'>
                 <div className='forgot-password-form--clipped-circle'
                     ref={divRef}
@@ -56,7 +55,10 @@ export default function ForgotPassword() {
 function ForgotPasswordForm(props) {
     const [email, setEmail] = useState('');
 
+    const { sendPasswordResetEmailUser } = useContext(AuthContext);
+
     const submitEmail = () => {
+        sendPasswordResetEmailUser(email)
         props.handlePopup()
     }
 

@@ -47,11 +47,20 @@ function SignInForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const { currentUser, signInWithGoogle } = useContext(AuthContext);
+    const { currentUser, signInWithGoogle, signInUser } = useContext(AuthContext);
     const navigate = useNavigate();
     if (currentUser) {
-        navigate('/dashboard')
+        if (currentUser.emailVerified) {
+            navigate('/dashboard')
+        } else {
+            navigate('/sign-up/verify')
+        }
+
     }
+
+    const handleSignInWithEmailAndPassword = () => {
+        signInUser(email, password)
+    } // @todo: Errorcode
 
     const handleGoogleSignIn = () => {
         signInWithGoogle()
@@ -64,7 +73,7 @@ function SignInForm() {
             <input className="signin-form--input" type='email' placeholder="email" value={email} onChange={e => setEmail(e.target.value)} />
             <input className="signin-form--input" type='password' placeholder="password" value={password} onChange={e => setPassword(e.target.value)} />
             <div className='forgot-password--container'><a className='forgot-password--anchor' href='/sign-in/forgot-password'>Forgot password? Click here to reset password.</a></div>
-            <ButtonPrimary name='Sign in' />
+            <ButtonPrimary name='Sign in' handleClick={handleSignInWithEmailAndPassword} />
             <div className='signin-form--or-container'>
                 <div className='signin-form--or-left-div'></div>
                 <div>

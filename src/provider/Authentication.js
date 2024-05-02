@@ -1,12 +1,16 @@
 import React, { createContext, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { initializeApp } from 'firebase/app';
 import {
     getAuth,
     GoogleAuthProvider,
     signInWithPopup,
     signOut,
-    onAuthStateChanged
+    onAuthStateChanged,
+    createUserWithEmailAndPassword,
+    sendEmailVerification,
+    signInWithEmailAndPassword,
+    sendPasswordResetEmail,
+    deleteUser
 } from 'firebase/auth';
 
 // Initialize Firebase
@@ -51,6 +55,36 @@ const AuthProvider = ({ children }) => {
         console.log('hello')
     };
 
+    const signInUser = (email, password) => {
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+            });
+    }
+
+    const signUpUser = (email, password) => {
+        return new Promise((resolve, reject) => {
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed up successfully
+                    const user = userCredential.user;
+                    sendEmailVerification(user).then(signOutUser())
+                    resolve(null); // Resolve with null since there's no error code
+                })
+                .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    reject(errorCode); // Reject with error code
+                });
+        });
+    }
+
     const signOutUser = () => {
         signOut(auth).then(() => {
             // Sign-out successful.
@@ -59,8 +93,47 @@ const AuthProvider = ({ children }) => {
         });
     };
 
+    const deleteUserAccount = () => {
+        currentUser.delete()
+            .then(() => {
+            })
+            .catch((error) => {
+            });
+    }
+
+    const resendVerificationEmail = () => {
+        sendEmailVerification(currentUser).then(() => {
+
+        }).catch((error) => {
+
+        });
+
+    }
+
+    const sendPasswordResetEmailUser = (email) => {
+        sendPasswordResetEmail(auth, email)
+            .then(function () {
+                // Password reset email sent.
+            })
+            .catch(function (error) {
+                // Error occurred. Inspect error.code.
+            });
+
+    }
+
+    const functions = {
+        currentUser,
+        signInWithGoogle,
+        signInUser,
+        signOutUser,
+        signUpUser,
+        deleteUserAccount,
+        resendVerificationEmail,
+        sendPasswordResetEmailUser
+    }
+
     return (
-        <AuthContext.Provider value={{ currentUser, signInWithGoogle, signOutUser }}>
+        <AuthContext.Provider value={functions}>
             {!loading && children}
         </AuthContext.Provider>
     );
