@@ -1,14 +1,30 @@
 import './Dashboard.css'
 import Navbar from '../components/navbars/NavbarSignIn'
-import CardGalleryView from '../components/dashboard/CardGalleryView'
-import CardLinearView from '../components/dashboard/CardLinearView'
+import CardGalleryViewWatchlist from '../components/dashboard/CardGalleryViewWatchlist'
+import CardLinearViewWatchlist from '../components/dashboard/CardLinearViewWatchlist'
+import CardGalleryViewOther from '../components/dashboard/CardGalleryViewOther'
+import CardLinearViewOther from '../components/dashboard/CardLinearViewOther'
 import galleryViewIcon from '../assets/icons/gallery_view_icon.svg'
 import listViewIcon from '../assets/icons/list_view_icon.svg'
 import { useState } from 'react';
+import { watchlist } from '../database_testing/data'
 
 export default function DashboardGuestState() {
     const [watchlistGalleryView, setWatchlistGalleryView] = useState(true);
     const [otherCryptoGalleryView, setOtherCryptoGalleryView] = useState(false);
+    const [watchlistState, setWatchlistState] = useState(watchlist);
+
+    const removeFromWatchlist = (tickerSymbol) => {
+        setWatchlistState(watchlistState.filter(x => x !== tickerSymbol));
+        console.log(tickerSymbol);
+    }
+
+    const addToWatchlist = (tickerSymbol) => {
+        setWatchlistState((prevList) => {
+            const newList = [...prevList, tickerSymbol].sort();
+            return newList;
+        });
+    }
 
     return (
         <div className='dashboard-content--max-width'>
@@ -26,7 +42,8 @@ export default function DashboardGuestState() {
                 </div>
             </div>
 
-            {watchlistGalleryView ? <CardGalleryView /> : <CardLinearView />}
+            {watchlistGalleryView ? <CardGalleryViewWatchlist removeCard={removeFromWatchlist} watchlist={watchlistState} /> :
+                <CardLinearViewWatchlist removeCard={removeFromWatchlist} watchlist={watchlistState} />}
 
 
             <div className='dashboard--section'>
@@ -42,7 +59,8 @@ export default function DashboardGuestState() {
                 </div>
             </div>
 
-            {otherCryptoGalleryView ? <CardGalleryView /> : <CardLinearView />}
+            {otherCryptoGalleryView ? <CardGalleryViewOther addCard={addToWatchlist} watchlist={watchlistState} /> :
+                <CardLinearViewOther addCard={addToWatchlist} watchlist={watchlistState} />}
         </div>
     )
 }

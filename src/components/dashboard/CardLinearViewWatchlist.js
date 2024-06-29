@@ -1,15 +1,16 @@
 import './CardLinearView.css'
-import { coins } from '../../database_testing/data'
+import { coins2 } from '../../database_testing/data'
 
-export default function CardLinearView() {
+export default function CardLinearViewWatchlist(props) {
     return (
+
         <div className='card-linear-view'>
-            {coins.map(x => <CardLinearState data={x} />)}
+            {props.watchlist.map(key => coins2[key]).map(x => <CardLinearStateWatchlist removeCard={props.removeCard} key={x.tickerSymbol} symbol={x.tickerSymbol} data={x} />)}
         </div>
     )
 }
 
-function CardLinearState(props) {
+function CardLinearStateWatchlist(props) {
     return (
         <div className='card--linear-state'>
             <h2>{props.data.name}</h2>
@@ -20,7 +21,12 @@ function CardLinearState(props) {
                     -111.11%
                 </span>
                 <a className='card-linear--more-details' href=''>see more details</a>
-                <div title='add to watchlist' className='card--plus'><span className='card--minus--span'>+</span></div>
+                <div
+                    onClick={() => props.removeCard(props.symbol)}
+                    title='add to watchlist'
+                    className='card--minus'>
+                    <span className='card--minus--span'>-</span>
+                </div>
             </div>
         </div>
     )

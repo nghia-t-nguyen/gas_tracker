@@ -1,7 +1,9 @@
 import './Dashboard.css';
 import Navbar from '../components/navbars/NavbarDashboard';
-import CardGalleryView from '../components/dashboard/CardGalleryView';
-import CardLinearView from '../components/dashboard/CardLinearView';
+import CardGalleryViewWatchlist from '../components/dashboard/CardGalleryViewWatchlist'
+import CardLinearViewWatchlist from '../components/dashboard/CardLinearViewWatchlist'
+import CardGalleryViewOther from '../components/dashboard/CardGalleryViewOther'
+import CardLinearViewOther from '../components/dashboard/CardLinearViewOther'
 import galleryViewIcon from '../assets/icons/gallery_view_icon.svg';
 import listViewIcon from '../assets/icons/list_view_icon.svg';
 import { useState } from 'react';
@@ -26,7 +28,7 @@ export default function DashboardSignedInState() {
                 </div>
             </div>
 
-            {watchlistGalleryView ? <CardGalleryView /> : <CardLinearView />}
+            {watchlistGalleryView ? <CardGalleryViewWatchlist /> : <CardLinearViewWatchlist />}
 
 
             <div className='dashboard--section'>
@@ -42,7 +44,7 @@ export default function DashboardSignedInState() {
                 </div>
             </div>
 
-            {otherCryptoGalleryView ? <CardGalleryView /> : <CardLinearView />}
+            {otherCryptoGalleryView ? <CardGalleryViewOther /> : <CardLinearViewOther />}
         </div>
     )
 }
