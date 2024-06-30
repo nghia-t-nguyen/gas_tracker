@@ -1,53 +1,16 @@
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
-import './Graph.css'
 import { useEffect, useState } from 'react';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const Graph = () => {
-    const [cryptoData, setCryptoData] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
-    const url = 'http://ec2-3-15-168-58.us-east-2.compute.amazonaws.com:3000/api/bitcoin/average-gas-fee'
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch('http://ec2-3-15-168-58.us-east-2.compute.amazonaws.com:3000/api/bitcoin/average-gas-fee', {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        // 'Authorization': 'Bearer YOUR_TOKEN' // Add this line if authentication is required
-                    }
-                });
-
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-
-                const jsonData = await response.json();
-                setCryptoData(jsonData);
-            } catch (error) {
-                setError(error);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchData();
-    }, []);
-
-    const cryptoLabels = cryptoData.map(x => x.date.date)
-    const vals = cryptoData.map(x => x.feeValue)
-
-
+export default function Graph(props) {
     const data = {
-        labels: cryptoLabels,
+        labels: props.labels,
         datasets: [
             {
                 label: 'Fee',
-                data: vals,
+                data: props.vals,
                 fill: false,
                 borderColor: '#ECE4FF',
                 backgroundColor: '#ECE4FF',
@@ -66,6 +29,20 @@ const Graph = () => {
                 display: false,
                 position: 'top',
             },
+            tooltip: {
+                callbacks: {
+                    label: function (tooltipItem) {
+                        // Customize tooltip label here
+                        let label = tooltipItem.dataset.label || '';
+                        if (label) {
+                            label += ': ';
+                        }
+                        label += tooltipItem.raw.toFixed(6); // Displaying more decimal places
+                        return label;
+                    },
+                },
+            },
+
         },
         scales: {
             y: {
@@ -92,14 +69,8 @@ const Graph = () => {
         }
     };
 
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error.message}</div>;
     return (
-        <div className='graph-gallery-container'>
-            <Line data={data} options={options} />
-        </div>
+        <Line data={data} options={options} />
     )
 
 };
-
-export default Graph;

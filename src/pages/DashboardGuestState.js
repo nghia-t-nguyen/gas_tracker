@@ -7,7 +7,7 @@ import CardLinearViewOther from '../components/dashboard/CardLinearViewOther'
 import galleryViewIcon from '../assets/icons/gallery_view_icon.svg'
 import listViewIcon from '../assets/icons/list_view_icon.svg'
 import { useState } from 'react';
-import { watchlist } from '../database_testing/data'
+import { watchlist } from '../data/data'
 
 export default function DashboardGuestState() {
     const [watchlistGalleryView, setWatchlistGalleryView] = useState(true);

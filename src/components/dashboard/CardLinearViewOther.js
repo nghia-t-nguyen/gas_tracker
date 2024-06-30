@@ -1,5 +1,5 @@
 import './CardLinearView.css'
-import { coins, available } from '../../database_testing/data'
+import { coins, available } from '../../data/data'
 
 export default function CardLinearViewOther(props) {
     return (

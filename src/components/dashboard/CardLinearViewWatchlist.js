@@ -1,5 +1,5 @@
 import './CardLinearView.css'
-import { coins } from '../../database_testing/data'
+import { coins } from '../../data/data'
 
 export default function CardLinearViewWatchlist(props) {
     return (
