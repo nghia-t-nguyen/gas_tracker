@@ -1,11 +1,11 @@
 import './CardLinearView.css'
-import { coins2 } from '../../database_testing/data'
+import { coins } from '../../database_testing/data'
 
 export default function CardLinearViewWatchlist(props) {
     return (
-
         <div className='card-linear-view'>
-            {props.watchlist.map(key => coins2[key]).map(x => <CardLinearStateWatchlist removeCard={props.removeCard} key={x.tickerSymbol} symbol={x.tickerSymbol} data={x} />)}
+            {props.watchlist.length === 0 && <p style={{ 'color': '#E683FF', 'marginLeft': '1rem' }}>Add to watchlist from below.</p>}
+            {props.watchlist.map(key => coins[key]).map(x => <CardLinearStateWatchlist removeCard={props.removeCard} key={x.tickerSymbol} symbol={x.tickerSymbol} data={x} />)}
         </div>
     )
 }

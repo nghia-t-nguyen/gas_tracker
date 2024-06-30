@@ -1,10 +1,12 @@
 import './CardGalleryView.css'
-import { coins, coins2 } from '../../database_testing/data'
+import { coins } from '../../database_testing/data'
+import Graph from './Graph'
 
 export default function CardGalleryViewWatchlist(props) {
     return (
         <div className='card-gallery-view'>
-            {props.watchlist.map(key => coins2[key]).map(x => <CardGalleryStateWatchlist removeCard={props.removeCard} key={x.tickerSymbol} symbol={x.tickerSymbol} data={x} />)}
+            {props.watchlist.length === 0 && <p style={{ 'color': '#E683FF' }}>Add to watchlist from below.</p>}
+            {props.watchlist.map(key => coins[key]).map(x => <CardGalleryStateWatchlist removeCard={props.removeCard} key={x.tickerSymbol} symbol={x.tickerSymbol} data={x} />)}
         </div>
     )
 }
@@ -18,8 +20,14 @@ function CardGalleryStateWatchlist(props) {
                     onClick={() => props.removeCard(props.symbol)}
                     title='remove from watchlist' className='card--minus'><span className='card--minus--span'>-</span></div>
             </div>
-            <div className='card--graph-gallery'>placeholder for graph</div>
-            <a className='card--more-details' href=''>see more details</a>
+            {/* <div className='card--graph-gallery'>placeholder for graph</div> */}
+            <Graph />
+            <div className='card--endline-container'>
+                <div className='card--endline-current-fee--container'>
+                    <span className='card--endline-current-fee'>fee: 1.385</span>
+                </div>
+                <a className='card--more-details' href=''>more details</a>
+            </div>
         </div>
     )
 }

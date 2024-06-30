@@ -1,37 +1,4 @@
-export const coins = [
-    {
-        'name': 'Bitcoin (BTC)'
-    },
-    {
-        'name': 'Ethereum (ETH)'
-    },
-    {
-        'name': 'BNB (BNB)'
-    },
-    {
-        'name': 'Solana (SOL)'
-    },
-    {
-        'name': 'XRP (XRP)'
-    },
-    {
-        'name': 'Dogecoin (DOGE)'
-    },
-    {
-        'name': 'Toncoin (TON)'
-    },
-    {
-        'name': 'Cardano (ADA)'
-    },
-    {
-        'name': 'Avalanche (AVAX)'
-    },
-    {
-        'name': 'Polkadot (DOT)'
-    },
-]
-
-export const coins2 = {
+export const coins = {
     'BTC': {
         'tickerSymbol': 'BTC',
         'name': 'Bitcoin (BTC)'
@@ -75,7 +42,7 @@ export const coins2 = {
 }
 
 export var watchlist = [
-    'BTC', 'ETH', 'BNB'
+    'BTC'
 ]
 
 export const available = [

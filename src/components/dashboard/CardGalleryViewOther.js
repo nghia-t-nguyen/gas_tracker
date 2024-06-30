@@ -1,10 +1,10 @@
 import './CardGalleryView.css'
-import { coins, coins2, available } from '../../database_testing/data'
+import { coins, available } from '../../database_testing/data'
 
 export default function CardGalleryViewOther(props) {
     return (
         <div className='card-gallery-view'>
-            {available.filter(x => !props.watchlist.includes(x)).map(key => coins2[key])
+            {available.filter(x => !props.watchlist.includes(x)).map(key => coins[key])
                 .map(x => <CardGalleryStateOther addCard={props.addCard} key={x.tickerSymbol} symbol={x.tickerSymbol} data={x} />)}
         </div>
     )

@@ -7,10 +7,24 @@ import CardLinearViewOther from '../components/dashboard/CardLinearViewOther'
 import galleryViewIcon from '../assets/icons/gallery_view_icon.svg';
 import listViewIcon from '../assets/icons/list_view_icon.svg';
 import { useState } from 'react';
+import { watchlist } from '../database_testing/data'
 
 export default function DashboardSignedInState() {
     const [watchlistGalleryView, setWatchlistGalleryView] = useState(true);
     const [otherCryptoGalleryView, setOtherCryptoGalleryView] = useState(false);
+    const [watchlistState, setWatchlistState] = useState(watchlist);
+
+    const removeFromWatchlist = (tickerSymbol) => {
+        setWatchlistState(watchlistState.filter(x => x !== tickerSymbol));
+        console.log(tickerSymbol);
+    }
+
+    const addToWatchlist = (tickerSymbol) => {
+        setWatchlistState((prevList) => {
+            const newList = [...prevList, tickerSymbol].sort();
+            return newList;
+        });
+    }
 
     return (
         <div className='dashboard-content--max-width'>
@@ -28,7 +42,8 @@ export default function DashboardSignedInState() {
                 </div>
             </div>
 
-            {watchlistGalleryView ? <CardGalleryViewWatchlist /> : <CardLinearViewWatchlist />}
+            {watchlistGalleryView ? <CardGalleryViewWatchlist removeCard={removeFromWatchlist} watchlist={watchlistState} /> :
+                <CardLinearViewWatchlist removeCard={removeFromWatchlist} watchlist={watchlistState} />}
 
 
             <div className='dashboard--section'>
@@ -44,7 +59,8 @@ export default function DashboardSignedInState() {
                 </div>
             </div>
 
-            {otherCryptoGalleryView ? <CardGalleryViewOther /> : <CardLinearViewOther />}
+            {otherCryptoGalleryView ? <CardGalleryViewOther addCard={addToWatchlist} watchlist={watchlistState} /> :
+                <CardLinearViewOther addCard={addToWatchlist} watchlist={watchlistState} />}
         </div>
     )
 }

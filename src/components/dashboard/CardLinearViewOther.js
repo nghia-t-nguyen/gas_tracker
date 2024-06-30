@@ -1,10 +1,10 @@
 import './CardLinearView.css'
-import { coins2, available } from '../../database_testing/data'
+import { coins, available } from '../../database_testing/data'
 
 export default function CardLinearViewOther(props) {
     return (
         <div className='card-linear-view'>
-            {available.filter(x => !props.watchlist.includes(x)).map(key => coins2[key])
+            {available.filter(x => !props.watchlist.includes(x)).map(key => coins[key])
                 .map(x => <CardLinearStateOther addCard={props.addCard} key={x.tickerSymbol} symbol={x.tickerSymbol} data={x} />)}
         </div>
     )
