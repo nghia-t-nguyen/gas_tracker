@@ -46,6 +46,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-shrink: 0;
     }
 
     .card--minus {
@@ -138,6 +139,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-shrink: 0;
     }
 
     .card--minus {
@@ -194,6 +196,7 @@
     .card--graph-gallery {
         flex-grow: 1;
         width: 99%;
+        overflow: hidden;
     }
 
     .card--endline-container {
@@ -228,6 +231,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-shrink: 0;
     }
 
     .card--minus {
@@ -284,6 +288,7 @@
     .card--graph-gallery {
         flex-grow: 1;
         width: 99%;
+        overflow: hidden;
     }
 
     .card--endline-container {
