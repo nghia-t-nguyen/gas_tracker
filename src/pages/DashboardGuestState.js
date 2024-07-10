@@ -13,6 +13,7 @@ export default function DashboardGuestState() {
     const [watchlistGalleryView, setWatchlistGalleryView] = useState(true);
     const [otherCryptoGalleryView, setOtherCryptoGalleryView] = useState(false);
     const [watchlistState, setWatchlistState] = useState(watchlist);
+    const [whichTab, setWhichTab] = useState(0);
 
     const removeFromWatchlist = (tickerSymbol) => {
         setWatchlistState(watchlistState.filter(x => x !== tickerSymbol));
@@ -29,38 +30,66 @@ export default function DashboardGuestState() {
     return (
         <div className='dashboard-content--max-width'>
             <Navbar />
-            <div className='dashboard--section'>
-                <h1>Watchlist</h1>
-                <div className='dashboard--view-button'
-                    title='toggle view'
-                    onClick={() => setWatchlistGalleryView(prevState => !prevState)}>
-                    <img alt='' className='dashboard--view-button-img'
-                        src={watchlistGalleryView ? galleryViewIcon : listViewIcon} />
-                    <span className='dashboard--view-button-text'>
-                        view
-                    </span>
-                </div>
+            <div className='tab-title-container'>
+                <span
+                    className={`tab-title ${whichTab == 0 ? 'tab-focused' : ''}`}
+                    onClick={() => { setWhichTab(0) }}
+                >
+                    manage
+                </span>
+                <span
+                    className={`tab-title ${whichTab == 1 ? 'tab-focused' : ''}`}
+                    onClick={() => { setWhichTab(1) }}
+                >
+                    compare
+                </span>
             </div>
 
-            {watchlistGalleryView ? <CardGalleryViewWatchlist removeCard={removeFromWatchlist} watchlist={watchlistState} /> :
-                <CardLinearViewWatchlist removeCard={removeFromWatchlist} watchlist={watchlistState} />}
+            <div className='tab-content-container'>
+
+                {whichTab == 0 &&
+                    <div className='manage-watchlist-tab'>
+                        <div className='dashboard--section'>
+                            <h1>Watchlist</h1>
+                            <div className='dashboard--view-button'
+                                title='toggle view'
+                                onClick={() => setWatchlistGalleryView(prevState => !prevState)}>
+                                <img alt='' className='dashboard--view-button-img'
+                                    src={watchlistGalleryView ? galleryViewIcon : listViewIcon} />
+                                <span className='dashboard--view-button-text'>
+                                    view
+                                </span>
+                            </div>
+                        </div>
+
+                        {watchlistGalleryView ? <CardGalleryViewWatchlist removeCard={removeFromWatchlist} watchlist={watchlistState} /> :
+                            <CardLinearViewWatchlist removeCard={removeFromWatchlist} watchlist={watchlistState} />}
 
 
-            <div className='dashboard--section'>
-                <h1>Other Available Cryptocurrencies</h1>
-                <div className='dashboard--view-button'
-                    title='toggle view'
-                    onClick={() => setOtherCryptoGalleryView(prevState => !prevState)}>
-                    <img alt='' className='dashboard--view-button-img'
-                        src={otherCryptoGalleryView ? galleryViewIcon : listViewIcon} />
-                    <span className='dashboard--view-button-text'>
-                        view
-                    </span>
-                </div>
+                        <div className='dashboard--section dashboard--section-other'>
+                            <h1>Other Available Cryptocurrencies</h1>
+                            <div className='dashboard--view-button'
+                                title='toggle view'
+                                onClick={() => setOtherCryptoGalleryView(prevState => !prevState)}>
+                                <img alt='' className='dashboard--view-button-img'
+                                    src={otherCryptoGalleryView ? galleryViewIcon : listViewIcon} />
+                                <span className='dashboard--view-button-text'>
+                                    view
+                                </span>
+                            </div>
+                        </div>
+
+                        {otherCryptoGalleryView ? <CardGalleryViewOther addCard={addToWatchlist} watchlist={watchlistState} /> :
+                            <CardLinearViewOther addCard={addToWatchlist} watchlist={watchlistState} />}
+                    </div>
+                }
+                {whichTab == 1 &&
+                    <div className='compare-tab'>
+
+                    </div>
+                }
             </div>
-
-            {otherCryptoGalleryView ? <CardGalleryViewOther addCard={addToWatchlist} watchlist={watchlistState} /> :
-                <CardLinearViewOther addCard={addToWatchlist} watchlist={watchlistState} />}
         </div>
+
     )
 }

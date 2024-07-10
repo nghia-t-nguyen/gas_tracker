@@ -18,13 +18,13 @@ function CardGalleryStateWatchlist(props) {
     const [error, setError] = useState(null);
     const [date, setDate] = useState(new Date());
 
-
+    // Refetch data
     useEffect(() => {
         // Function to calculate milliseconds until the next midnight UTC
         const calculateMillisecondsUntilMidnightUTC = () => {
             const now = new Date();
             const nextMidnightUTC = new Date(
-                Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + 1, 0, 2, 0)
+                Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + 1, 0, 1, 0)
             );
             return nextMidnightUTC - now;
         };
@@ -55,6 +55,7 @@ function CardGalleryStateWatchlist(props) {
         return () => clearTimeout(timeoutId);
     }, []);
 
+    // Fetching Data
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -88,7 +89,7 @@ function CardGalleryStateWatchlist(props) {
     return (
         <div className='card--gallery-state'>
             <div className='card--topline-container'>
-                <h2>{props.data.name}</h2>
+                <h2 className='card--name'>{props.data.name}</h2>
                 <div
                     onClick={() => props.removeCard(props.symbol)}
                     title='remove from watchlist' className='card--minus'><span className='card--minus--span'>-</span></div>
@@ -99,7 +100,7 @@ function CardGalleryStateWatchlist(props) {
             </div>
             <div className='card--endline-container'>
                 <div className='card--endline-current-fee--container'>
-                    <span className='card--endline-current-fee'>fee: {!loading ? vals[vals.length - 1].toFixed(5) : ''}</span>
+                    <span title='most recent daily average fee' className='card--endline-current-fee'>fee: {!loading ? vals[vals.length - 1].toFixed(5) : ''}</span>
                 </div>
                 <a className='card--more-details' href=''>more details</a>
             </div>

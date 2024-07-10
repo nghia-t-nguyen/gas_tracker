@@ -1,6 +1,5 @@
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
-import { useEffect, useState } from 'react';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
@@ -35,7 +34,7 @@ export default function Graph(props) {
                         // Customize tooltip label here
                         let label = tooltipItem.dataset.label || '';
                         if (label) {
-                            label += ': ';
+                            label += ' (daily avg): ';
                         }
                         label += tooltipItem.raw.toFixed(6); // Displaying more decimal places
                         return label;

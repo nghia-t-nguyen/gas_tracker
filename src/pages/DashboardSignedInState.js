@@ -6,13 +6,23 @@ import CardGalleryViewOther from '../components/dashboard/CardGalleryViewOther'
 import CardLinearViewOther from '../components/dashboard/CardLinearViewOther'
 import galleryViewIcon from '../assets/icons/gallery_view_icon.svg';
 import listViewIcon from '../assets/icons/list_view_icon.svg';
-import { useState } from 'react';
-import { watchlist } from '../data/data'
+import { useState, useEffect } from 'react';
 
 export default function DashboardSignedInState() {
     const [watchlistGalleryView, setWatchlistGalleryView] = useState(true);
     const [otherCryptoGalleryView, setOtherCryptoGalleryView] = useState(false);
-    const [watchlistState, setWatchlistState] = useState(watchlist);
+    const [watchlistState, setWatchlistState] = useState([]);
+
+    // read and update data
+    useEffect(() => {
+
+    }, []);
+
+    // update the database
+    useEffect(() => {
+
+    }, [watchlistState]);
+
 
     const removeFromWatchlist = (tickerSymbol) => {
         setWatchlistState(watchlistState.filter(x => x !== tickerSymbol));
@@ -46,7 +56,7 @@ export default function DashboardSignedInState() {
                 <CardLinearViewWatchlist removeCard={removeFromWatchlist} watchlist={watchlistState} />}
 
 
-            <div className='dashboard--section'>
+            <div className='dashboard--section dashboard--section-other'>
                 <h1>Other Available Cryptocurrencies</h1>
                 <div className='dashboard--view-button'
                     title='toggle view'

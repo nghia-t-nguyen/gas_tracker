@@ -19,3 +19,8 @@
 .button--primary-title {
     color: #0d1020;
 }
+
+.googleLogo {
+    height: 1.25rem;
+    margin-right: 6px;
+}
