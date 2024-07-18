@@ -1,0 +1,125 @@
+.compare-tab-selection--heading {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #151D48;
+    margin-bottom: 1rem;
+}
+
+.multigraph-container {
+    flex-grow: 1;
+    min-height: 0;
+    width: 99%;
+}
+
+.checkbox-container {
+    display: flex;
+    justify-content: end;
+    margin-top: 1rem;
+}
+
+.compare-tab-view {
+    padding: 0.75rem 1rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-width: 0;
+    min-height: 0;
+    min-height: 400px;
+    height: 70vh;
+    max-height: 600px;
+}
+
+.selection--container {
+    flex-grow: 1;
+    width: 100%;
+    background-color: #0d1020;
+    margin-bottom: 0.25rem;
+    border-radius: 12px;
+    border: 1px solid #151D48;
+    padding-top: 0.25rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+.selection--container::-webkit-scrollbar {
+    width: 12px;
+}
+
+.selection--container::-webkit-scrollbar-thumb {
+    border-radius: 12px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #40aa95;
+    border: 1px solid #000;
+    transition: all 0.2s ease-in-out;
+}
+
+.selection--container::-webkit-scrollbar-thumb:hover {
+    background-color: #49c3aa;
+}
+
+@media screen and (min-width: 1024px) {
+    .compare-tab {
+        margin: 1rem 1rem;
+    }
+
+    .graph-views-container {
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 1fr;
+        gap: 1rem;
+    }
+
+    .multigraph-view {
+        border-radius: 20px;
+
+        background: linear-gradient(168deg, rgba(13, 16, 32, 0.90) 4.22%, rgba(21, 29, 72, 0.60) 93.29%);
+        border: 1px solid #151D48;
+    }
+
+    .options-view {
+        border-radius: 20px;
+        max-height: 600px;
+        background: linear-gradient(168deg, rgba(13, 16, 32, 0.90) 4.22%, rgba(21, 29, 72, 0.60) 93.29%);
+        border: 1px solid #151D48;
+    }
+
+    .compare-tab-view--heading {
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .compare-tab {
+        margin: 1rem 1rem;
+    }
+
+    .graph-views-container {
+        margin-top: 2rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .multigraph-view {
+        border-radius: 20px;
+        min-height: 400px;
+        height: 55vh;
+        max-height: 500px;
+        background: linear-gradient(168deg, rgba(13, 16, 32, 0.90) 4.22%, rgba(21, 29, 72, 0.60) 93.29%);
+        border: 1px solid #151D48;
+    }
+
+    .options-view {
+        border-radius: 20px;
+        margin-bottom: 1rem;
+        height: 400px;
+        background: linear-gradient(168deg, rgba(13, 16, 32, 0.90) 4.22%, rgba(21, 29, 72, 0.60) 93.29%);
+        border: 1px solid #151D48;
+    }
+
+    .compare-tab-view--heading {
+        font-weight: 500;
+    }
+}

@@ -1,3 +1,16 @@
+.card--linear-current-fee--container {
+    background-color: #0D1020;
+    display: inline-block;
+    padding: 0 0.5rem;
+    border-radius: 1rem;
+    border: 1px solid #151D48;
+}
+
+.card--linear-current-fee {
+    color: #E683FF;
+    font-size: 1rem;
+}
+
 @media screen and (min-width: 768px) {
     .card-linear-view {
         width: 100%;
@@ -5,8 +18,8 @@
     }
 
     .card--linear-state {
-        border-radius: 2.25rem;
-        padding: 1rem 1.5rem;
+        border-radius: 1.25rem;
+        padding: 0.75rem 1.25rem;
         margin-bottom: 1.5rem;
         margin-left: 1rem;
         margin-right: 1rem;
@@ -32,13 +45,16 @@
     .card--graph-linear {
         width: 4rem;
         height: 2rem;
-        background-color: aqua;
+        background-color: #0D1020;
+        border-radius: 4px;
+        border: 1px solid #151D48;
         margin-right: 1rem;
     }
 
     .graph-ticker--span {
         font-size: 1.2rem;
-        color: red;
+        min-width: 6rem;
+        text-align: right;
     }
 
     .card-linear--more-details {
@@ -61,6 +77,11 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .card--plus:hover {
+        box-shadow: inset 0 0 6px rgba(47, 172, 149, 0.3);
     }
 
     .card--plus--span {
@@ -70,9 +91,50 @@
         font-size: 2.5rem;
         user-select: none;
     }
+
+    .card--minus {
+        display: flex;
+        height: 2.5rem;
+        width: 2.5rem;
+        min-height: 2.5rem;
+        min-width: 2.5rem;
+        background-color: #0D1020;
+        border-radius: 50%;
+        border: 1px solid #151D48;
+        justify-content: center;
+        cursor: pointer;
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .card--minus:hover {
+        box-shadow: inset 0 0 6px rgba(47, 172, 149, 0.3);
+    }
+
+    .card--minus--span {
+        color: #4DFFDF;
+        font-weight: 700;
+        line-height: 2.1rem;
+        font-size: 2.5rem;
+        user-select: none;
+    }
 }
 
+@media screen and (max-width: 950px) {
+    .graph-time {
+        display: none;
+        font-size: 1.2rem;
+        color: #ece4ff;
+        margin-right: 1rem;
+    }
 
+    .card--graph-linear {
+        display: none;
+        width: 4rem;
+        height: 2rem;
+        background-color: aqua;
+        margin-right: 1rem;
+    }
+}
 
 @media screen and (max-width: 768px) {
     .card-linear-view {
@@ -81,8 +143,8 @@
     }
 
     .card--linear-state {
-        border-radius: 2.25rem;
-        padding: 1rem 1.5rem;
+        border-radius: 1.25rem;
+        padding: 0.75rem 1.25rem;
         margin-bottom: 1.5rem;
         margin-left: 1rem;
         margin-right: 1rem;
@@ -116,7 +178,7 @@
     .graph-ticker--span {
         display: none;
         font-size: 1.2rem;
-        color: red;
+        min-width: 6rem;
     }
 
     .card-linear--more-details {
@@ -139,12 +201,44 @@
         justify-content: center;
         align-items: center;
         cursor: pointer;
+        transition: box-shadow 0.3s ease-in-out;
     }
+
+    .card--plus:hover {
+        box-shadow: inset 0 0 6px rgba(47, 172, 149, 0.3);
+    }
+
 
     .card--plus--span {
         color: #4DFFDF;
         font-weight: 700;
         line-height: 2.5rem;
+        font-size: 2.5rem;
+        user-select: none;
+    }
+
+    .card--minus {
+        display: flex;
+        height: 2.5rem;
+        width: 2.5rem;
+        min-height: 2.5rem;
+        min-width: 2.5rem;
+        background-color: #0D1020;
+        border-radius: 50%;
+        border: 1px solid #151D48;
+        justify-content: center;
+        cursor: pointer;
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .card--minus:hover {
+        box-shadow: inset 0 0 6px rgba(47, 172, 149, 0.3);
+    }
+
+    .card--minus--span {
+        color: #4DFFDF;
+        font-weight: 700;
+        line-height: 2.1rem;
         font-size: 2.5rem;
         user-select: none;
     }

@@ -1,0 +1,25 @@
+.button--action {
+    transition: box-shadow 0.1s;
+    height: 2rem;
+    display: inline-flex;
+    width: max-content;
+    justify-content: center;
+    align-items: center;
+    background-color: #0d1020;
+    border-radius: 1.875rem;
+    padding: 0 1rem;
+    cursor: pointer;
+    border: 1px solid #151D48;
+    margin-bottom: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.button--action:hover {
+    box-shadow: inset 0 0 6px rgba(47, 172, 149, 0.3);
+}
+
+.button--action-title {
+    color: #4DFFDF;
+    font-family: "Space Mono", monospace;
+    font-size: 1rem;
+}

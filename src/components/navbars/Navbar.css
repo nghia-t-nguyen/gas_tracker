@@ -4,7 +4,7 @@
         top: 0;
         left: 0;
         height: 70px;
-        border-bottom: 1.5px solid black;
+        border-bottom: 1.5px solid #070810;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -70,7 +70,7 @@
         top: 0;
         left: 0;
         height: 70px;
-        border-bottom: 1.5px solid black;
+        border-bottom: 1.5px solid #070810;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -141,7 +141,7 @@
         top: 0;
         left: 0;
         height: 60px;
-        border-bottom: 1.5px solid black;
+        border-bottom: 1.5px solid #070810;
         width: 100%;
         display: flex;
         justify-content: center;

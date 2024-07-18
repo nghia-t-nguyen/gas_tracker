@@ -1,8 +1,36 @@
+.card--endline-current-fee {
+    color: #E683FF;
+    font-size: 1rem;
+}
+
+.card--endline-current-fee--container {
+    padding: 0 0.5rem;
+    background-color: #0D1020;
+    border-radius: 1rem;
+    border: 1px solid #151D48;
+}
+
+.card--more-details {
+    color: #4DFFDF;
+    font-size: 1rem;
+    text-decoration: none;
+    text-align: right;
+    transition: all 0.2s ease-in-out;
+}
+
+.card--more-details:hover {
+    text-shadow: 0 2px 5px rgba(77, 255, 223, 0.6);
+}
+
+.card--name {
+    font-weight: 500;
+}
+
 @media screen and (min-width: 1024px) {
     .card-gallery-view {
         width: calc(100% - 2rem);
         margin: 0 1rem;
-        padding: 2rem 0;
+        padding: 1rem 0 2rem;
         gap: 1rem;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -16,13 +44,13 @@
         background: linear-gradient(168deg, rgba(13, 16, 32, 0.90) 4.22%, rgba(21, 29, 72, 0.60) 93.29%);
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
     }
 
     .card--topline-container {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
+        flex-shrink: 0;
     }
 
     .card--minus {
@@ -42,27 +70,60 @@
         line-height: 2.1rem;
         font-size: 2.5rem;
         user-select: none;
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .card--minus:hover {
+        box-shadow: inset 0 0 6px rgba(47, 172, 149, 0.3);
+    }
+
+    .card--plus {
+        display: flex;
+        height: 2.5rem;
+        width: 2.5rem;
+        min-height: 2.5rem;
+        min-width: 2.5rem;
+        background-color: #0D1020;
+        border-radius: 1.25rem;
+        border: 1px solid #151D48;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .card--plus:hover {
+        box-shadow: inset 0 0 6px rgba(47, 172, 149, 0.3);
+    }
+
+    .card--plus--span {
+        color: #4DFFDF;
+        font-weight: 700;
+        line-height: 2.5rem;
+        font-size: 2.5rem;
+        user-select: none;
     }
 
     .card--graph-gallery {
-        height: 200px;
-        border: 1px solid white;
-        color: white;
+        flex-grow: 1;
+        width: 99%;
+        overflow: hidden;
     }
 
-    .card--more-details {
-        color: #4DFFDF;
-        font-size: 1.2rem;
-        text-decoration: none;
-        text-align: right;
+    .card--endline-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1rem;
     }
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     .card-gallery-view {
         width: calc(100% - 2rem);
         margin: 0 1rem;
-        padding: 2rem 0;
+        padding: 1rem 0 2rem;
         gap: 1rem;
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -76,13 +137,13 @@
         background: linear-gradient(168deg, rgba(13, 16, 32, 0.90) 4.22%, rgba(21, 29, 72, 0.60) 93.29%);
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
     }
 
     .card--topline-container {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
+        flex-shrink: 0;
     }
 
     .card--minus {
@@ -94,6 +155,11 @@
         border: 1px solid #151D48;
         justify-content: center;
         cursor: pointer;
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .card--minus:hover {
+        box-shadow: inset 0 0 6px rgba(47, 172, 149, 0.3);
     }
 
     .card--minus--span {
@@ -104,17 +170,44 @@
         user-select: none;
     }
 
-    .card--graph-gallery {
-        height: 200px;
-        border: 1px solid white;
-        color: white;
+    .card--plus {
+        display: flex;
+        height: 2.5rem;
+        width: 2.5rem;
+        min-height: 2.5rem;
+        min-width: 2.5rem;
+        background-color: #0D1020;
+        border-radius: 1.25rem;
+        border: 1px solid #151D48;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: box-shadow 0.3s ease-in-out;
     }
 
-    .card--more-details {
+    .card--plus:hover {
+        box-shadow: inset 0 0 6px rgba(47, 172, 149, 0.3);
+    }
+
+    .card--plus--span {
         color: #4DFFDF;
-        font-size: 1.2rem;
-        text-decoration: none;
-        text-align: right;
+        font-weight: 700;
+        line-height: 2.5rem;
+        font-size: 2.5rem;
+        user-select: none;
+    }
+
+    .card--graph-gallery {
+        flex-grow: 1;
+        width: 99%;
+        overflow: hidden;
+    }
+
+    .card--endline-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1rem;
     }
 }
 
@@ -122,7 +215,7 @@
     .card-gallery-view {
         width: calc(100% - 2rem);
         margin: 0 1rem;
-        padding: 2rem 0;
+        padding: 1rem 0 2rem;
         gap: 1rem;
         display: grid;
         grid-template-columns: 1fr;
@@ -136,13 +229,13 @@
         background: linear-gradient(168deg, rgba(13, 16, 32, 0.90) 4.22%, rgba(21, 29, 72, 0.60) 93.29%);
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
     }
 
     .card--topline-container {
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
+        flex-shrink: 0;
     }
 
     .card--minus {
@@ -154,6 +247,11 @@
         border: 1px solid #151D48;
         justify-content: center;
         cursor: pointer;
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    .card--minus:hover {
+        box-shadow: inset 0 0 6px rgba(47, 172, 149, 0.3);
     }
 
     .card--minus--span {
@@ -164,16 +262,44 @@
         user-select: none;
     }
 
-    .card--graph-gallery {
-        height: 200px;
-        border: 1px solid white;
-        color: white;
+    .card--plus {
+        display: flex;
+        height: 2.5rem;
+        width: 2.5rem;
+        min-height: 2.5rem;
+        min-width: 2.5rem;
+        background-color: #0D1020;
+        border-radius: 1.25rem;
+        border: 1px solid #151D48;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: box-shadow 0.3s ease-in-out;
     }
 
-    .card--more-details {
-        color: #4DFFDF;
-        font-size: 1.2rem;
-        text-decoration: none;
-        text-align: right;
+    .card--plus:hover {
+        box-shadow: inset 0 0 6px rgba(47, 172, 149, 0.3);
     }
+
+    .card--plus--span {
+        color: #4DFFDF;
+        font-weight: 700;
+        line-height: 2.5rem;
+        font-size: 2.5rem;
+        user-select: none;
+    }
+
+    .card--graph-gallery {
+        flex-grow: 1;
+        width: 99%;
+        overflow: hidden;
+    }
+
+    .card--endline-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1rem;
+    }
+
 }
