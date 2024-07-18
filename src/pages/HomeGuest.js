@@ -67,7 +67,7 @@ export default function Home() {
                         <h1>Stay at the top of your game with <span>gas_tracker</span></h1>
                         <p><b>gas_tracker</b> helps users track gas, a.k.a. the computational work required to perform transactions on a blockchain network</p>
                         <div>
-                            <p className='home--hero-text-button-one'><ButtonPrimary name='Sign up' handleClick={goToSignUp} /> or</p>
+                            <p className='home--hero-text-button-one'><ButtonPrimary name='Sign up for free' handleClick={goToSignUp} /> or</p>
                             <ButtonSecondary name='Try without signing up' handleClick={goToDashboardGuest} />
                         </div>
                     </div>

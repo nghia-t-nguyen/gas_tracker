@@ -6,6 +6,7 @@ import CardGalleryViewOther from '../components/dashboard/CardGalleryViewOther'
 import CardLinearViewOther from '../components/dashboard/CardLinearViewOther'
 import galleryViewIcon from '../assets/icons/gallery_view_icon.svg'
 import listViewIcon from '../assets/icons/list_view_icon.svg'
+import CompareTab from '../components/dashboard/CompareTab'
 import { useState } from 'react';
 import { watchlist } from '../data/data'
 
@@ -84,8 +85,8 @@ export default function DashboardGuestState() {
                     </div>
                 }
                 {whichTab == 1 &&
-                    <div className='compare-tab'>
-
+                    <div className='compare-tab-container'>
+                        <CompareTab watchlist={watchlistState} />
                     </div>
                 }
             </div>

@@ -89,7 +89,7 @@ function CardLinearStateWatchlist(props) {
     return (
         <div className='card--linear-state'>
             <div>
-                <h2 className='card--name'>{props.data.name}</h2>
+                <h2 className='card--name'>{`${props.data.name} (${props.data.tickerSymbol})`}</h2>
                 <div className='card--linear-current-fee--container'>
                     <span title='most recent daily average fee' className='card--linear-current-fee'>fee: {!loading ? vals[vals.length - 1].toFixed(5) : ''}</span>
                 </div>

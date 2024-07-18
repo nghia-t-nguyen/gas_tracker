@@ -39,7 +39,7 @@
 
     .tab-content-container {
         border-top: 3px solid #151D48;
-        border-radius: 0 20px 0 0;
+        border-radius: 0 25px 0 0;
         background-color: #0d1020;
     }
 
@@ -82,7 +82,7 @@
         text-shadow: 0 2px 5px rgba(77, 255, 223, 0.6);
     }
 
-    .compare-tab {
+    .compare-tab-container {
         min-height: 100vh;
     }
 }
@@ -129,7 +129,7 @@
 
     .tab-content-container {
         border-top: 3px solid #151D48;
-        border-radius: 0 20px 0 0;
+        border-radius: 0 25px 0 0;
         background-color: #0d1020;
     }
 
@@ -178,7 +178,7 @@
         width: 100%;
         max-width: 90rem;
         margin: 0 auto;
-        margin-top: 85px;
+        margin-top: 80px;
         height: 100vh;
     }
 
@@ -215,7 +215,7 @@
 
     .tab-content-container {
         border-top: 3px solid #151D48;
-        border-radius: 0 20px 0 0;
+        border-radius: 0 25px 0 0;
         background-color: #0d1020;
     }
 

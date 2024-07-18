@@ -89,7 +89,7 @@ function CardGalleryStateWatchlist(props) {
     return (
         <div className='card--gallery-state'>
             <div className='card--topline-container'>
-                <h2 className='card--name'>{props.data.name}</h2>
+                <h2 className='card--name'>{`${props.data.name} (${props.data.tickerSymbol})`}</h2>
                 <div
                     onClick={() => props.removeCard(props.symbol)}
                     title='remove from watchlist' className='card--minus'><span className='card--minus--span'>-</span></div>
