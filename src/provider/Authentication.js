@@ -17,7 +17,7 @@ import { doc, setDoc, getDoc, getFirestore, deleteDoc } from 'firebase/firestore
 // Initialize Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyCuKE2Fu5Fc31jyykvaWBsFNks5Ad2luGk",
-    authDomain: "gas-trkr.netlify.app",
+    authDomain: "gas-tracker-90f63.firebaseapp.com",
     projectId: "gas-tracker-90f63",
     storageBucket: "gas-tracker-90f63.appspot.com",
     messagingSenderId: "245269806511",
