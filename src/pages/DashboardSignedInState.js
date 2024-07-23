@@ -25,14 +25,14 @@ export default function DashboardSignedInState() {
         };
 
         fetchData();
-    }, []);
+    }, [readArrayFromFirestore]);
 
     // update the database
     useEffect(() => {
         if (isInitialized) {
             saveArrayToFirestore(watchlistState)
         }
-    }, [watchlistState]);
+    }, [watchlistState, isInitialized, saveArrayToFirestore]);
 
 
     const removeFromWatchlist = (tickerSymbol) => {
@@ -52,13 +52,13 @@ export default function DashboardSignedInState() {
             <Navbar />
             <div className='tab-title-container'>
                 <span
-                    className={`tab-title ${whichTab == 0 ? 'tab-focused' : ''}`}
+                    className={`tab-title ${whichTab === 0 ? 'tab-focused' : ''}`}
                     onClick={() => { setWhichTab(0) }}
                 >
                     manage
                 </span>
                 <span
-                    className={`tab-title ${whichTab == 1 ? 'tab-focused' : ''}`}
+                    className={`tab-title ${whichTab === 1 ? 'tab-focused' : ''}`}
                     onClick={() => { setWhichTab(1) }}
                 >
                     compare
@@ -67,7 +67,7 @@ export default function DashboardSignedInState() {
 
             <div className='tab-content-container'>
 
-                {whichTab == 0 &&
+                {whichTab === 0 &&
                     <div className='manage-watchlist-tab'>
                         <div className='dashboard--section'>
                             <h1>Watchlist</h1>
@@ -123,7 +123,7 @@ export default function DashboardSignedInState() {
                             <CardLinearViewOther addCard={addToWatchlist} watchlist={watchlistState} />}
                     </div>
                 }
-                {whichTab == 1 &&
+                {whichTab === 1 &&
                     <div className='compare-tab-container'>
                         <CompareTab watchlist={watchlistState} />
                     </div>
