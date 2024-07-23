@@ -9,6 +9,8 @@ import HomeGuest from './pages/HomeGuest';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Dashboard from './pages/Dashboard';
+import { coins } from './data/data';
+import MoreDetails from './pages/MoreDetails';
 
 
 function App() {
@@ -26,6 +28,9 @@ function App() {
           <Route path='/sign-up/verify' element={<EmailVerification />} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/account-settings' element={<AccountSettings />} />
+          {
+            Object.keys(coins).map(x => <Route path={`/${x}`} element={<MoreDetails coinName={x} />} />)
+          }
         </Routes>
       </BrowserRouter>
     </AuthProvider>

@@ -55,8 +55,19 @@ export default function DashboardGuestState() {
                             <div className='dashboard--view-button'
                                 title='toggle view'
                                 onClick={() => setWatchlistGalleryView(prevState => !prevState)}>
-                                <img alt='' className='dashboard--view-button-img'
-                                    src={watchlistGalleryView ? galleryViewIcon : listViewIcon} />
+                                {watchlistGalleryView ?
+                                    <svg className='dashboard--view-button-img' width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="1" y="1" width="5" height="5" rx="1" fill="#4DFFDF" />
+                                        <rect x="7" y="1" width="5" height="5" rx="1" fill="#4DFFDF" />
+                                        <rect x="7" y="7" width="5" height="5" rx="1" fill="#4DFFDF" />
+                                        <rect x="1" y="7" width="5" height="5" rx="1" fill="#4DFFDF" />
+                                    </svg> :
+                                    <svg className='dashboard--view-button-img' width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="1" y="1" width="11" height="3" rx="1" fill="#4DFFDF" />
+                                        <rect x="1" y="9" width="11" height="3" rx="1" fill="#4DFFDF" />
+                                        <rect x="1" y="5" width="11" height="3" rx="1" fill="#4DFFDF" />
+                                    </svg>}
+
                                 <span className='dashboard--view-button-text'>
                                     view
                                 </span>
@@ -72,8 +83,18 @@ export default function DashboardGuestState() {
                             <div className='dashboard--view-button'
                                 title='toggle view'
                                 onClick={() => setOtherCryptoGalleryView(prevState => !prevState)}>
-                                <img alt='' className='dashboard--view-button-img'
-                                    src={otherCryptoGalleryView ? galleryViewIcon : listViewIcon} />
+                                {otherCryptoGalleryView ?
+                                    <svg className='dashboard--view-button-img' width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="1" y="1" width="5" height="5" rx="1" fill="#4DFFDF" />
+                                        <rect x="7" y="1" width="5" height="5" rx="1" fill="#4DFFDF" />
+                                        <rect x="7" y="7" width="5" height="5" rx="1" fill="#4DFFDF" />
+                                        <rect x="1" y="7" width="5" height="5" rx="1" fill="#4DFFDF" />
+                                    </svg> :
+                                    <svg className='dashboard--view-button-img' width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="1" y="1" width="11" height="3" rx="1" fill="#4DFFDF" />
+                                        <rect x="1" y="9" width="11" height="3" rx="1" fill="#4DFFDF" />
+                                        <rect x="1" y="5" width="11" height="3" rx="1" fill="#4DFFDF" />
+                                    </svg>}
                                 <span className='dashboard--view-button-text'>
                                     view
                                 </span>

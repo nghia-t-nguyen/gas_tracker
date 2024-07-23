@@ -12,6 +12,7 @@ import {
     sendPasswordResetEmail,
     deleteUser
 } from 'firebase/auth';
+import { doc, setDoc, getDoc, getFirestore } from 'firebase/firestore';
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -26,6 +27,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const AuthContext = createContext();
+const db = getFirestore(app);
 
 
 const AuthProvider = ({ children }) => {
@@ -121,6 +123,46 @@ const AuthProvider = ({ children }) => {
 
     }
 
+    const saveArrayToFirestore = async (array) => {
+        if (!currentUser) {
+            return;
+        }
+
+        // Reference to the user's document
+        const userDocRef = doc(db, "users", currentUser.uid);
+
+        try {
+            await setDoc(userDocRef, { userWatchlist: array }, { merge: true });
+        } catch (error) {
+            console.error("Error saving array to Firestore:", error);
+        }
+    }
+
+    const readArrayFromFirestore = async () => {
+        if (!currentUser) {
+            return;
+        }
+
+        // Reference to the user's document
+        const userDocRef = doc(db, "users", currentUser.uid);
+
+        try {
+            // Get the user's document
+            const userDoc = await getDoc(userDocRef);
+            if (userDoc.exists()) {
+                const userData = userDoc.data();
+                const watchlist = userData.userWatchlist;
+                return watchlist;
+            } else {
+                return [];
+            }
+        } catch (error) {
+            console.error("Error reading document:", error);
+        }
+    }
+
+
+
     const functions = {
         currentUser,
         signInWithGoogle,
@@ -129,7 +171,9 @@ const AuthProvider = ({ children }) => {
         signUpUser,
         deleteUserAccount,
         resendVerificationEmail,
-        sendPasswordResetEmailUser
+        sendPasswordResetEmailUser,
+        saveArrayToFirestore,
+        readArrayFromFirestore
     }
 
     return (

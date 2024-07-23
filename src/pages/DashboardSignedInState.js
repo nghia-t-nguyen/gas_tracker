@@ -4,26 +4,26 @@ import CardGalleryViewWatchlist from '../components/dashboard/CardGalleryViewWat
 import CardLinearViewWatchlist from '../components/dashboard/CardLinearViewWatchlist'
 import CardGalleryViewOther from '../components/dashboard/CardGalleryViewOther'
 import CardLinearViewOther from '../components/dashboard/CardLinearViewOther'
-import galleryViewIcon from '../assets/icons/gallery_view_icon.svg';
-import listViewIcon from '../assets/icons/list_view_icon.svg';
 import CompareTab from '../components/dashboard/CompareTab';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { AuthContext } from '../provider/Authentication';
 
 export default function DashboardSignedInState() {
     const [watchlistGalleryView, setWatchlistGalleryView] = useState(true);
     const [otherCryptoGalleryView, setOtherCryptoGalleryView] = useState(false);
     const [watchlistState, setWatchlistState] = useState([]);
     const [whichTab, setWhichTab] = useState(0);
+    const { saveArrayToFirestore, readArrayFromFirestore } = useContext(AuthContext);
 
-    // read and update data
-    useEffect(() => {
+    // // read and update data
+    // useEffect(() => {
+    //     setWatchlistState(readArrayFromFirestore())
+    // }, []);
 
-    }, []);
-
-    // update the database
-    useEffect(() => {
-
-    }, [watchlistState]);
+    // // update the database
+    // useEffect(() => {
+    //     saveArrayToFirestore(watchlistState)
+    // }, [watchlistState]);
 
 
     const removeFromWatchlist = (tickerSymbol) => {
@@ -65,8 +65,18 @@ export default function DashboardSignedInState() {
                             <div className='dashboard--view-button'
                                 title='toggle view'
                                 onClick={() => setWatchlistGalleryView(prevState => !prevState)}>
-                                <img alt='' className='dashboard--view-button-img'
-                                    src={watchlistGalleryView ? galleryViewIcon : listViewIcon} />
+                                {watchlistGalleryView ?
+                                    <svg className='dashboard--view-button-img' width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="1" y="1" width="5" height="5" rx="1" fill="#4DFFDF" />
+                                        <rect x="7" y="1" width="5" height="5" rx="1" fill="#4DFFDF" />
+                                        <rect x="7" y="7" width="5" height="5" rx="1" fill="#4DFFDF" />
+                                        <rect x="1" y="7" width="5" height="5" rx="1" fill="#4DFFDF" />
+                                    </svg> :
+                                    <svg className='dashboard--view-button-img' width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="1" y="1" width="11" height="3" rx="1" fill="#4DFFDF" />
+                                        <rect x="1" y="9" width="11" height="3" rx="1" fill="#4DFFDF" />
+                                        <rect x="1" y="5" width="11" height="3" rx="1" fill="#4DFFDF" />
+                                    </svg>}
                                 <span className='dashboard--view-button-text'>
                                     view
                                 </span>
@@ -82,8 +92,18 @@ export default function DashboardSignedInState() {
                             <div className='dashboard--view-button'
                                 title='toggle view'
                                 onClick={() => setOtherCryptoGalleryView(prevState => !prevState)}>
-                                <img alt='' className='dashboard--view-button-img'
-                                    src={otherCryptoGalleryView ? galleryViewIcon : listViewIcon} />
+                                {otherCryptoGalleryView ?
+                                    <svg className='dashboard--view-button-img' width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="1" y="1" width="5" height="5" rx="1" fill="#4DFFDF" />
+                                        <rect x="7" y="1" width="5" height="5" rx="1" fill="#4DFFDF" />
+                                        <rect x="7" y="7" width="5" height="5" rx="1" fill="#4DFFDF" />
+                                        <rect x="1" y="7" width="5" height="5" rx="1" fill="#4DFFDF" />
+                                    </svg> :
+                                    <svg className='dashboard--view-button-img' width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect x="1" y="1" width="11" height="3" rx="1" fill="#4DFFDF" />
+                                        <rect x="1" y="9" width="11" height="3" rx="1" fill="#4DFFDF" />
+                                        <rect x="1" y="5" width="11" height="3" rx="1" fill="#4DFFDF" />
+                                    </svg>}
                                 <span className='dashboard--view-button-text'>
                                     view
                                 </span>

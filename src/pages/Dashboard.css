@@ -3,7 +3,7 @@
         width: 100%;
         max-width: 80rem;
         margin: 0 auto;
-        margin-top: 85px;
+        margin-top: 90px;
     }
 
     .tab-title-container {
@@ -40,7 +40,7 @@
     .tab-content-container {
         border-top: 3px solid #151D48;
         border-radius: 0 25px 0 0;
-        background-color: #0d1020;
+        background-color: #090b16;
     }
 
     .manage-watchlist-tab {
@@ -67,7 +67,8 @@
 
     .dashboard--view-button-img {
         width: 1.5rem;
-        transform: translate(0, -0.125rem);
+        height: 1.5rem;
+        transform: translate(0, 0.25rem);
     }
 
     .dashboard--view-button-text {
@@ -92,6 +93,93 @@
         width: 100%;
         max-width: 80rem;
         margin: 0 auto;
+        margin-top: 90px;
+        height: 100vh;
+    }
+
+    .tab-title-container {
+        margin-left: 0.4rem;
+    }
+
+    .tab-title {
+        color: #4DFFDF;
+        font-size: 1.2rem;
+        padding: 0.2rem 0.6rem 0 0.6rem;
+        border-radius: 10px 10px 0 0;
+        user-select: none;
+        cursor: pointer;
+        background-color: #121739;
+        border-radius: 10px 10px 0 0;
+        border-left: 1px solid #151D48;
+        border-top: 1px solid #151D48;
+        border-right: 1px solid #151D48;
+        transition: all 0.2s ease-in-out;
+    }
+
+    .tab-title:hover {
+        background-color: #151D48;
+    }
+
+    .tab-focused {
+        background-color: #151D48 !important;
+        border-left: 1px solid #243072 !important;
+        border-top: 1px solid #243072 !important;
+        border-right: 1px solid #243072 !important;
+        color: #ece4ff !important;
+    }
+
+    .tab-content-container {
+        border-top: 3px solid #151D48;
+        border-radius: 0 25px 0 0;
+        background-color: #090b16;
+    }
+
+    .manage-watchlist-tab {
+        margin-top: 1rem;
+    }
+
+    .dashboard--section {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        padding: 0 1rem;
+    }
+
+    .dashboard--section-other {
+        border-top: 1px solid #151D48;
+        padding-top: 1rem;
+    }
+
+    .dashboard--view-button {
+        display: flex;
+        user-select: none;
+        cursor: pointer;
+    }
+
+    .dashboard--view-button-img {
+        width: 1.5rem;
+        height: 1.5rem;
+        transform: translate(0, 0.25rem);
+    }
+
+    .dashboard--view-button-text {
+        color: #4DFFDF;
+        font-size: 1.2rem;
+        line-height: 2.25rem;
+        margin-left: 0.3rem;
+        transition: text-shadow 0.2s ease-in-out;
+    }
+
+    .dashboard--view-button:hover .dashboard--view-button-text {
+        text-shadow: 0 2px 5px rgba(77, 255, 223, 0.6);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .dashboard-content--max-width {
+        width: 100%;
+        max-width: 90rem;
+        margin: 0 auto;
         margin-top: 85px;
         height: 100vh;
     }
@@ -130,7 +218,7 @@
     .tab-content-container {
         border-top: 3px solid #151D48;
         border-radius: 0 25px 0 0;
-        background-color: #0d1020;
+        background-color: #090b16;
     }
 
     .manage-watchlist-tab {
@@ -157,93 +245,8 @@
 
     .dashboard--view-button-img {
         width: 1.5rem;
-        transform: translate(0, -0.125rem);
-    }
-
-    .dashboard--view-button-text {
-        color: #4DFFDF;
-        font-size: 1.2rem;
-        line-height: 2.25rem;
-        margin-left: 0.3rem;
-        transition: text-shadow 0.2s ease-in-out;
-    }
-
-    .dashboard--view-button:hover .dashboard--view-button-text {
-        text-shadow: 0 2px 5px rgba(77, 255, 223, 0.6);
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .dashboard-content--max-width {
-        width: 100%;
-        max-width: 90rem;
-        margin: 0 auto;
-        margin-top: 80px;
-        height: 100vh;
-    }
-
-    .tab-title-container {
-        margin-left: 0.4rem;
-    }
-
-    .tab-title {
-        color: #4DFFDF;
-        font-size: 1.2rem;
-        padding: 0.2rem 0.6rem 0 0.6rem;
-        border-radius: 10px 10px 0 0;
-        user-select: none;
-        cursor: pointer;
-        background-color: #121739;
-        border-radius: 10px 10px 0 0;
-        border-left: 1px solid #151D48;
-        border-top: 1px solid #151D48;
-        border-right: 1px solid #151D48;
-        transition: all 0.2s ease-in-out;
-    }
-
-    .tab-title:hover {
-        background-color: #151D48;
-    }
-
-    .tab-focused {
-        background-color: #151D48 !important;
-        border-left: 1px solid #243072 !important;
-        border-top: 1px solid #243072 !important;
-        border-right: 1px solid #243072 !important;
-        color: #ece4ff !important;
-    }
-
-    .tab-content-container {
-        border-top: 3px solid #151D48;
-        border-radius: 0 25px 0 0;
-        background-color: #0d1020;
-    }
-
-    .manage-watchlist-tab {
-        margin-top: 1rem;
-    }
-
-    .dashboard--section {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        padding: 0 1rem;
-    }
-
-    .dashboard--section-other {
-        border-top: 1px solid #151D48;
-        padding-top: 1rem;
-    }
-
-    .dashboard--view-button {
-        display: flex;
-        user-select: none;
-        cursor: pointer;
-    }
-
-    .dashboard--view-button-img {
-        width: 1.5rem;
-        transform: translate(0, -0.125rem);
+        height: 1.5rem;
+        transform: translate(0, 0.25rem);
     }
 
     .dashboard--view-button-text {

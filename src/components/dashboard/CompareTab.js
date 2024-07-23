@@ -25,6 +25,44 @@ export default function CompareTab(props) {
     const [normalized, setNormalized] = useState(false);
     const [allData, setAllData] = useState({})
     const [error, setError] = useState('')
+    const [date, setDate] = useState(new Date());
+
+    // Date
+    useEffect(() => {
+        // Function to calculate milliseconds until the next midnight UTC
+        const calculateMillisecondsUntilMidnightUTC = () => {
+            const now = new Date();
+            const nextMidnightUTC = new Date(
+                Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + 1, 0, 1, 0)
+            );
+            return nextMidnightUTC - now;
+        };
+
+        // Function to update the date state variable
+        const updateDate = () => {
+            setDate(new Date());
+            console.log('Date updated to:', new Date().toUTCString());
+        };
+
+        // Calculate the time until the next midnight UTC
+        const timeUntilMidnightUTC = calculateMillisecondsUntilMidnightUTC();
+
+        // Set a timeout to update the date at the next midnight UTC
+        const timeoutId = setTimeout(() => {
+            updateDate();
+
+            // Set an interval to update the date at every subsequent midnight UTC
+            const intervalId = setInterval(() => {
+                updateDate();
+            }, 24 * 60 * 60 * 1000); // 24 hours in milliseconds
+
+            // Clear the interval on component unmount
+            return () => clearInterval(intervalId);
+        }, timeUntilMidnightUTC);
+
+        // Clear the timeout on component unmount
+        return () => clearTimeout(timeoutId);
+    }, []);
 
     //CHECKBOX FUNCTIONS
     const handleCheckboxChange = (item) => {
@@ -115,7 +153,7 @@ export default function CompareTab(props) {
         };
 
         fetchAllData();
-    }, []);
+    }, [date]);
 
     // - DISPLAY DATA PROCESSING
     const displayData = Object.entries(allData)

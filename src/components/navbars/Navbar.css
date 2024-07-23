@@ -4,12 +4,13 @@
         top: 0;
         left: 0;
         height: 70px;
-        border-bottom: 1.5px solid #070810;
+        background: linear-gradient(168deg, rgba(13, 16, 32, 0.90) 4.22%, rgba(21, 29, 72, 0.7) 93.29%);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid #151D48;
         width: 100%;
         display: flex;
         justify-content: center;
         z-index: 20;
-        background-color: #0d1020;
     }
 
     nav {
@@ -70,12 +71,13 @@
         top: 0;
         left: 0;
         height: 70px;
-        border-bottom: 1.5px solid #070810;
+        background: linear-gradient(168deg, rgba(13, 16, 32, 0.90) 4.22%, rgba(21, 29, 72, 0.7) 93.29%);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid #151D48;
         width: 100%;
         display: flex;
         justify-content: center;
         z-index: 20;
-        background-color: #0d1020;
     }
 
     nav {
@@ -141,12 +143,13 @@
         top: 0;
         left: 0;
         height: 60px;
-        border-bottom: 1.5px solid #070810;
+        background: linear-gradient(168deg, rgba(13, 16, 32, 0.90) 4.22%, rgba(21, 29, 72, 0.7) 93.29%);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid #151D48;
         width: 100%;
         display: flex;
         justify-content: center;
         z-index: 20;
-        background-color: #0d1020;
     }
 
     nav {
