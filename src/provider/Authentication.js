@@ -12,7 +12,7 @@ import {
     sendPasswordResetEmail,
     deleteUser
 } from 'firebase/auth';
-import { doc, setDoc, getDoc, getFirestore } from 'firebase/firestore';
+import { doc, setDoc, getDoc, getFirestore, deleteDoc } from 'firebase/firestore';
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -95,12 +95,15 @@ const AuthProvider = ({ children }) => {
         });
     };
 
-    const deleteUserAccount = () => {
-        currentUser.delete()
-            .then(() => {
-            })
-            .catch((error) => {
-            });
+    const deleteUserAccount = async () => {
+        await deleteDoc(doc(db, "users", currentUser.uid)).then(
+            currentUser.delete()
+                .then(() => {
+                })
+                .catch((error) => {
+                })
+        )
+
     }
 
     const resendVerificationEmail = () => {
