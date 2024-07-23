@@ -13,17 +13,26 @@ export default function DashboardSignedInState() {
     const [otherCryptoGalleryView, setOtherCryptoGalleryView] = useState(false);
     const [watchlistState, setWatchlistState] = useState([]);
     const [whichTab, setWhichTab] = useState(0);
+    const [isInitialized, setIsInitialized] = useState(false);
     const { saveArrayToFirestore, readArrayFromFirestore } = useContext(AuthContext);
 
-    // // read and update data
-    // useEffect(() => {
-    //     setWatchlistState(readArrayFromFirestore())
-    // }, []);
+    // read and update data
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await readArrayFromFirestore();
+            setWatchlistState(data);
+            setIsInitialized(true);
+        };
 
-    // // update the database
-    // useEffect(() => {
-    //     saveArrayToFirestore(watchlistState)
-    // }, [watchlistState]);
+        fetchData();
+    }, []);
+
+    // update the database
+    useEffect(() => {
+        if (isInitialized) {
+            saveArrayToFirestore(watchlistState)
+        }
+    }, [watchlistState]);
 
 
     const removeFromWatchlist = (tickerSymbol) => {
