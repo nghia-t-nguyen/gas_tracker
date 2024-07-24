@@ -147,7 +147,7 @@
         background: linear-gradient(168deg, rgba(13, 16, 32, 0.90) 4.22%, rgba(21, 29, 72, 0.7) 93.29%);
         backdrop-filter: blur(10px);
         border-bottom: 1px solid #151D48;
-        width: 100%;
+        width: 100vw;
         display: flex;
         justify-content: center;
         z-index: 20;
@@ -155,7 +155,7 @@
 
     nav {
         width: 100vw;
-        max-width: 80rem;
+        max-width: 100rem;
         padding: 0 1rem;
         overflow: hidden;
     }
