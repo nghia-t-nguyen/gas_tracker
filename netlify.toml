@@ -1,5 +1,5 @@
 [[redirects]]
   from = "/api/*"
-  to = "http://ec2-3-15-168-58.us-east-2.compute.amazonaws.com::3000/:splat"
+  to = "http://ec2-3-15-168-58.us-east-2.compute.amazonaws.com::3000:splat"
   status = 200
   force = true
