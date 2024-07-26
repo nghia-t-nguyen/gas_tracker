@@ -27,6 +27,18 @@ export default function CompareTab(props) {
     const [error, setError] = useState('')
     const [date, setDate] = useState(new Date());
 
+
+    // Color processing
+    const color1 = [250, 237, 39];   // Yellow
+    const color2 = [88, 230, 255];   // Red
+    const color3 = [255, 16, 240];   // Blue
+    const colors = [color1, color2, color3];
+    const gradient = generateGradientArray(colors, Object.keys(coins).length)
+    const itemColors = Object.keys(coins).reduce((accumulator, key, index) => {
+        accumulator[key] = gradient[index];
+        return accumulator;
+    }, {});
+
     // Date
     useEffect(() => {
         // Function to calculate milliseconds until the next midnight UTC
@@ -172,7 +184,7 @@ export default function CompareTab(props) {
                 const vals = value.map(x => x[coins[key].labelName])
                 const minValue = Math.min(...vals);
                 const maxValue = Math.max(...vals);
-                const color = highlightedItems[key] ? '#FF10F0' : '#ECE4FF'
+                const color = itemColors[key]
                 const thickness = highlightedItems[key] ? 4 : 3
                 const normalized = vals.map(x => (x - minValue) / (maxValue - minValue))
                 const obj = {
@@ -192,7 +204,7 @@ export default function CompareTab(props) {
             Object.entries(displayData).reduce((acc, [key, value]) => {
                 const thisLabel = `${key} Fee Value`
                 const vals = value.map(x => x[coins[key].labelName])
-                const color = highlightedItems[key] ? '#FF10F0' : '#ECE4FF'
+                const color = itemColors[key]
                 const thickness = highlightedItems[key] ? 4 : 3
                 const obj = {
                     label: thisLabel,
@@ -242,14 +254,14 @@ export default function CompareTab(props) {
                     </div>
                     <div className='selection--container'>
                         <FormGroup style={{ margin: 0, padding: 0 }}>
-                            {Object.keys(coins).map(x => <FormControlLabel
+                            {Object.keys(coins).map((x, index) => <FormControlLabel
                                 key={x}
                                 onMouseEnter={() => handleHighlightedItemsEnter(x)}
                                 onMouseLeave={() => handleHighlightedItemsLeave(x)}
                                 style={{ color: 'white', margin: '0 0.4rem', padding: 0, whiteSpace: 'nowrap' }}
                                 control={<Checkbox checked={checkedItems[x] || false}
                                     onChange={() => handleCheckboxChange(x)}
-                                    style={{ color: '#4DFFDF', margin: 0, padding: 0 }} size="small" />}
+                                    style={{ color: gradient[index], margin: 0, padding: 0 }} size="small" />}
                                 label={
                                     <span style={{ fontFamily: '"Space Mono", monospace', userSelect: 'none', fontSize: '1rem', marginLeft: '0.5rem', padding: 0 }}>
                                         {`${x}: ${coins[x].name}`}
@@ -262,4 +274,35 @@ export default function CompareTab(props) {
             </div>
         </div>
     )
+}
+
+function lerpColor(color1, color2, factor) {
+    const result = color1.slice();
+    for (let i = 0; i < 3; i++) {
+        result[i] = Math.round(result[i] + factor * (color2[i] - color1[i]));
+    }
+    return result;
+}
+
+
+
+function rgbToHex(rgb) {
+    return `#${rgb.map(x => {
+        const hex = x.toString(16);
+        return hex.length === 1 ? '0' + hex : hex;
+    }).join('')}`;
+}
+
+function generateGradientArray(colors, steps) {
+    const gradientArray = [];
+    const stepCount = Math.floor(steps / (colors.length - 1));
+    for (let i = 0; i < colors.length - 1; i++) {
+        for (let j = 0; j < stepCount; j++) {
+            const factor = j / stepCount;
+            const color = lerpColor(colors[i], colors[i + 1], factor);
+            gradientArray.push(rgbToHex(color));
+        }
+    }
+    gradientArray.push(rgbToHex(colors[colors.length - 1])); // Add the last color
+    return gradientArray;
 }
