@@ -125,10 +125,9 @@
 
 @media screen and (max-width: 950px) {
     .graph-time {
-        display: none;
         font-size: 1.2rem;
         color: #ece4ff;
-        margin-right: 1rem;
+        margin-right: 0;
     }
 
     .card--graph-linear {
