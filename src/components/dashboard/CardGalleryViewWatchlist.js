@@ -94,7 +94,7 @@ function CardGalleryStateWatchlist(props) {
                     onClick={() => props.removeCard(props.symbol)}
                     title='remove from watchlist' className='card--minus'><span className='card--minus--span'>-</span></div>
             </div>
-            {error && <p>Error:{Error.message}</p>}
+            {/* {error && <p>Error:{error.message}</p>} */}
             <div className='card--graph-gallery'>
                 <Graph labels={cryptoLabels} vals={vals} />
             </div>
