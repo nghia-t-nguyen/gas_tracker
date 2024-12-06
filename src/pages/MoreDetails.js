@@ -79,8 +79,8 @@ export default function MoreDetails(props) {
     const cryptoLabels = cryptoData.map(x => x.date.date)
     const vals = cryptoData.map(x => x[labelName])
     const currentVal = Number.parseFloat(vals[vals.length - 1])
-    const monthlyAvg = (vals.reduce((acc, curr) => acc + curr, 0) / vals.length).toPrecision(8);
-    const weeklyAvg = (vals.slice(-7).reduce((acc, curr) => acc + curr, 0) / 7).toPrecision(8);
+    const monthlyAvg = (vals.reduce((acc, curr) => acc + curr, 0) / vals.length).toFixed(8);
+    const weeklyAvg = (vals.slice(-7).reduce((acc, curr) => acc + curr, 0) / 7).toFixed(8);
     const monthlyPercentChange = (((vals[vals.length - 1] - vals[0]) / vals[0]) * 100).toPrecision(6)
     const weeklyPercentChange = (((vals[vals.length - 1] - vals[vals.length - 8]) / vals[vals.length - 8]) * 100).toPrecision(6)
     const dataPoints = vals.map((value, index) => [index, value])
