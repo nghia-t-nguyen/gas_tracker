@@ -18,7 +18,6 @@ function CardGalleryStateOther(props) {
     const [error, setError] = useState(null);
     const [date, setDate] = useState(new Date());
 
-
     useEffect(() => {
         // Function to calculate milliseconds until the next midnight UTC
         const calculateMillisecondsUntilMidnightUTC = () => {
@@ -103,7 +102,7 @@ function CardGalleryStateOther(props) {
                 <div className='card--endline-current-fee--container'>
                     <span title='most recent daily average fee' className='card--endline-current-fee'>fee: {!loading ? vals[vals.length - 1].toFixed(5) : ''}</span>
                 </div>
-                <a className='card--more-details' href=''>more details</a>
+                <a className='card--more-details' href={`/${props.data.tickerSymbol}`}>more details</a>
             </div>
         </div>
     )

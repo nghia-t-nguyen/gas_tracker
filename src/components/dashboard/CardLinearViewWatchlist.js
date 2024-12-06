@@ -101,7 +101,7 @@ function CardLinearStateWatchlist(props) {
                 <span style={{ color: percentChange >= 0 ? '#51FF0D' : '#FF3131' }} className='graph-ticker--span'>
                     {percentChange}%
                 </span>
-                <a className='card-linear--more-details' href=''>more details</a>
+                <a className='card-linear--more-details' href={`/${props.data.tickerSymbol}`}>more details</a>
                 <div
                     onClick={() => props.removeCard(props.symbol)}
                     title='remove from watchlist'

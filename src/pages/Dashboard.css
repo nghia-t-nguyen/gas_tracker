@@ -178,7 +178,7 @@
 @media screen and (max-width: 768px) {
     .dashboard-content--max-width {
         width: 100%;
-        max-width: 90rem;
+        max-width: 80rem;
         margin: 0 auto;
         margin-top: 85px;
         height: 100vh;
