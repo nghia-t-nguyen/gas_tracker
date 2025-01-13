@@ -27,7 +27,7 @@ export default function Dashboard() {
 
 
     if (displayFixingMessage) {
-        return <h1>Apologizes :/ this site is undergoing some changes, please return at a later date...</h1>
+        return <h1>Apologizes :/ this site is undergoing some changes due to BitQuery's pricing changes, please return at a later date...</h1>
     } else {
         if (currentUser) {
             if (currentUser.emailVerified) {
