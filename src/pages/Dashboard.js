@@ -5,7 +5,7 @@ import { AuthContext } from '../provider/Authentication'
 import { useNavigate } from 'react-router-dom'
 
 export default function Dashboard() {
-    const displayFixingMessage = true;
+    const displayFixingMessage = false;
     const { currentUser, signOutUser } = useContext(AuthContext);
     const navigate = useNavigate();
 
