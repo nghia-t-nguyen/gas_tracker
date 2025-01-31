@@ -1,2 +1,2 @@
-/api/* http://ec2-174-129-48-158.compute-1.amazonaws.com:3000/api/:splat 200!
+/api/* http://ec2-52-54-165-215.compute-1.amazonaws.com:3000/api/:splat 200!
 /*  /index.html  200

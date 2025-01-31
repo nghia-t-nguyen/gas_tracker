@@ -2,7 +2,7 @@
   "name": "gas_tracker",
   "version": "0.1.0",
   "homepage": "https://gas-trkr.netlify.app",
-  "proxy": "http://ec2-174-129-48-158.compute-1.amazonaws.com:3000",
+  "proxy": "http://ec2-52-54-165-215.compute-1.amazonaws.com:3000",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.4",
